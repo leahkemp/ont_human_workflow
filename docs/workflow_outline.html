@@ -1,0 +1,709 @@
+<!DOCTYPE html><html><head>
+      <title>workflow_outline</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="file:////Users/Miles.Benton/.vscode/extensions/shd101wyy.markdown-preview-enhanced-0.6.3/node_modules/@shd101wyy/mume/dependencies/katex/katex.min.css">
+      
+      
+      
+      <script type="text/javascript" src="file:////Users/Miles.Benton/.vscode/extensions/shd101wyy.markdown-preview-enhanced-0.6.3/node_modules/@shd101wyy/mume/dependencies/mermaid/mermaid.min.js" charset="UTF-8"></script>
+      
+      
+      
+      
+      
+      <style>
+      /**
+ * prism.js Github theme based on GitHub's theme.
+ * @author Sam Clarke
+ */
+code[class*="language-"],
+pre[class*="language-"] {
+  color: #333;
+  background: none;
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.4;
+
+  -moz-tab-size: 8;
+  -o-tab-size: 8;
+  tab-size: 8;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+  padding: .8em;
+  overflow: auto;
+  /* border: 1px solid #ddd; */
+  border-radius: 3px;
+  /* background: #fff; */
+  background: #f5f5f5;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+  padding: .1em;
+  border-radius: .3em;
+  white-space: normal;
+  background: #f5f5f5;
+}
+
+.token.comment,
+.token.blockquote {
+  color: #969896;
+}
+
+.token.cdata {
+  color: #183691;
+}
+
+.token.doctype,
+.token.punctuation,
+.token.variable,
+.token.macro.property {
+  color: #333;
+}
+
+.token.operator,
+.token.important,
+.token.keyword,
+.token.rule,
+.token.builtin {
+  color: #a71d5d;
+}
+
+.token.string,
+.token.url,
+.token.regex,
+.token.attr-value {
+  color: #183691;
+}
+
+.token.property,
+.token.number,
+.token.boolean,
+.token.entity,
+.token.atrule,
+.token.constant,
+.token.symbol,
+.token.command,
+.token.code {
+  color: #0086b3;
+}
+
+.token.tag,
+.token.selector,
+.token.prolog {
+  color: #63a35c;
+}
+
+.token.function,
+.token.namespace,
+.token.pseudo-element,
+.token.class,
+.token.class-name,
+.token.pseudo-class,
+.token.id,
+.token.url-reference .token.variable,
+.token.attr-name {
+  color: #795da3;
+}
+
+.token.entity {
+  cursor: help;
+}
+
+.token.title,
+.token.title .token.punctuation {
+  font-weight: bold;
+  color: #1d3e81;
+}
+
+.token.list {
+  color: #ed6a43;
+}
+
+.token.inserted {
+  background-color: #eaffea;
+  color: #55a532;
+}
+
+.token.deleted {
+  background-color: #ffecec;
+  color: #bd2c00;
+}
+
+.token.bold {
+  font-weight: bold;
+}
+
+.token.italic {
+  font-style: italic;
+}
+
+
+/* JSON */
+.language-json .token.property {
+  color: #183691;
+}
+
+.language-markup .token.tag .token.punctuation {
+  color: #333;
+}
+
+/* CSS */
+code.language-css,
+.language-css .token.function {
+  color: #0086b3;
+}
+
+/* YAML */
+.language-yaml .token.atrule {
+  color: #63a35c;
+}
+
+code.language-yaml {
+  color: #183691;
+}
+
+/* Ruby */
+.language-ruby .token.function {
+  color: #333;
+}
+
+/* Markdown */
+.language-markdown .token.url {
+  color: #795da3;
+}
+
+/* Makefile */
+.language-makefile .token.symbol {
+  color: #795da3;
+}
+
+.language-makefile .token.variable {
+  color: #183691;
+}
+
+.language-makefile .token.builtin {
+  color: #0086b3;
+}
+
+/* Bash */
+.language-bash .token.keyword {
+  color: #0086b3;
+}
+
+/* highlight */
+pre[data-line] {
+  position: relative;
+  padding: 1em 0 1em 3em;
+}
+pre[data-line] .line-highlight-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: transparent;
+  display: block;
+  width: 100%;
+}
+
+pre[data-line] .line-highlight {
+  position: absolute;
+  left: 0;
+  right: 0;
+  padding: inherit 0;
+  margin-top: 1em;
+  background: hsla(24, 20%, 50%,.08);
+  background: linear-gradient(to right, hsla(24, 20%, 50%,.1) 70%, hsla(24, 20%, 50%,0));
+  pointer-events: none;
+  line-height: inherit;
+  white-space: pre;
+}
+
+pre[data-line] .line-highlight:before, 
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-start);
+  position: absolute;
+  top: .4em;
+  left: .6em;
+  min-width: 1em;
+  padding: 0 .5em;
+  background-color: hsla(24, 20%, 50%,.4);
+  color: hsl(24, 20%, 95%);
+  font: bold 65%/1.5 sans-serif;
+  text-align: center;
+  vertical-align: .3em;
+  border-radius: 999px;
+  text-shadow: none;
+  box-shadow: 0 1px white;
+}
+
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-end);
+  top: auto;
+  bottom: .4em;
+}html body{font-family:"Helvetica Neue",Helvetica,"Segoe UI",Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ul,html body>ol{margin-bottom:16px}html body ul,html body ol{padding-left:2em}html body ul.no-list,html body ol.no-list{padding:0;list-style-type:none}html body ul ul,html body ul ol,html body ol ol,html body ol ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:bold;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:bold}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em !important;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::before,html body code::after{letter-spacing:-0.2em;content:"\00a0"}html body pre>code{padding:0;margin:0;font-size:.85em !important;word-break:normal;white-space:pre;background:transparent;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;font-size:.85em !important;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:before,html body pre tt:before,html body pre code:after,html body pre tt:after{content:normal}html body p,html body blockquote,html body ul,html body ol,html body dl,html body pre{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body pre,html body code{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview .pagebreak,.markdown-preview .newpage{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center !important}.markdown-preview:not([for="preview"]) .code-chunk .btn-group{display:none}.markdown-preview:not([for="preview"]) .code-chunk .status{display:none}.markdown-preview:not([for="preview"]) .code-chunk .output-div{margin-bottom:16px}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0}@media screen and (min-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{font-size:14px !important;padding:1em}}@media print{html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,0.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{padding:0 1.6em;margin-top:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc li{margin-bottom:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{list-style-type:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% -  300px);padding:2em calc(50% - 457px -  150px);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+.mermaid svg {
+  height: auto;
+  padding: 20pt;
+}
+
+      </style>
+    </head>
+    <body for="html-export">
+      <div class="mume markdown-preview  ">
+      <h1 class="mume-header" id="ont-human-workflow-overview">ONT Human Workflow Overview</h1>
+
+<hr>
+<p>// Singapore - New Zealand Applications Project Support Team, Oxford Nanopore Technologies<br>
+// <strong>author:</strong> Miles Benton<br>
+// <strong>last modified:</strong> 2022/10/12 11:15:27</p>
+<hr>
+<h2 class="mume-header" id="overview">Overview</h2>
+
+<p>The below chart gives a scematic of the general workflow as it currently stands.</p>
+<div class="mermaid">graph TD;
+    fast5{fast5 / pod5 / slow5}--&gt;Guppy/Remora/alignment([Guppy + Remora + alignment]);
+    Guppy/Remora/alignment--&gt;modbam{bam};
+    Guppy/Remora/alignment--&gt;seqsum([sequencing_summary.csv]);
+    seqsum--&gt;duplex_tools([duplex-tools]);
+    Guppy/Remora/alignment--&gt;fastq{fastq};
+    fastq--&gt;duplex_tools;
+    fast5--&gt;duplex_tools;
+    duplex_tools--&gt;read_pairs([duplex read pairs]);
+    read_pairs--&gt;guppy_duplex([guppy_basecaller_duplex]);
+    guppy_duplex--&gt;duplex_reads{duplex reads}
+    modbam--&gt;Clair3_nextflow;
+    GRCh38_ref_genome{reference genome}--&gt;Guppy/Remora/alignment;
+    GRCh38_ref_genome{reference genome}--&gt;Clair3_nextflow([wf-human-variation - clair3 + sniffles2]);
+    GRCh38_ref_genome{reference genome}--&gt;Whatshap
+    modbam{bam}--&gt;Whatshap;
+    Whatshap--&gt;modbam_phased{bam - phased};
+    Clair3_nextflow--&gt;vcf_phased;
+    modbam_phased--&gt;view([genome browser]);
+    view--&gt;IGV;
+    vcf_phased{vcf}--&gt;Whatshap;
+    vcf_phased{vcf}--&gt;variant_annotation([variant annotation]);
+    variant_annotation--&gt;VEP;
+    variant_annotation--&gt;dbNSFP;
+    modbam_phased--&gt;CNV_analysis([CNV analysis]);
+    CNV_analysis--&gt;qdna-seq
+    modbam_phased--&gt;modbam2bed;
+    modbam2bed--&gt;mod_bed.gz;
+    GRCh38_ref_genome{reference genome}--&gt;modbam2bed;
+    mod_bed.gz{bed}--&gt;methylation_analysis([methylation analysis]);
+    Clair3_nextflow--&gt;sniffles2([additional SV analysis - cuteSV, SVIM, SVision]);
+    GRCh38_ref_genome{reference genome}--&gt;sniffles2;
+    Clair3_nextflow--&gt;SV_data;
+    sniffles2--&gt;SV_data{SV data};
+    SV_data--&gt;SV_vcf.gz{vcf};
+    VEP--&gt;annotated_vcf.gz{vcf};
+    dbNSFP--&gt;annotated_vcf.gz;
+    annotated_vcf.gz--&gt;SNV_indel_analysis([SNV/indel analysis]);
+</div><h2 class="mume-header" id="the-pipeline-modules">The pipeline &apos;modules&apos;</h2>
+
+<p>The below bash scripts form the different &quot;modules&quot; of the workflow, each is self contained and was intended to be run as a PBS job (PBS parameters have been optimised for a specific compute infrastructure).</p>
+<p><strong>NOTE:</strong> please be aware that the below is example code only, it will need to be modified to reflect the users environment and variables before it will run successfully. It is intended as a guide at this stage. There is a Nextflow version coming soon which will be able to be run with minimal modification.</p>
+<p>Also please note that some steps require a conda or virtual environment to be set up first. It also assumes that you have <code>Nextflow</code> set up and running on the compute infrastructure being used.</p>
+<h3 class="mume-header" id="1-slow5blow5-conversion">1. slow5/blow5 conversion</h3>
+
+<p>If you have raw data that&apos;s not in either fast5 or pod5 format then you&apos;ll likely want to convert it.<br>
+This step does the conversion from slow5/blow5 data back to fast5. It won&apos;t be required for most situations, so feel free to start at step 2.</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash"><span class="token shebang important">#!/bin/bash -l</span>
+<span class="token comment">#PBS -N ont-slow5-convert</span>
+<span class="token comment">#PBS -l select=1:ncpus=24:mem=32gb</span>
+<span class="token comment">#PBS -l walltime=24:00:00</span>
+<span class="token comment">#PBS -M miles.benton@nanoporetech.com</span>
+
+<span class="token comment">#Change to folder where the job was submitted</span>
+<span class="token builtin class-name">cd</span> <span class="token variable">$PBS_O_WORKDIR</span>
+
+<span class="token comment"># conda</span>
+<span class="token comment"># run the below first time to set up environment</span>
+<span class="token comment"># conda create --name slow5-tools  -c bioconda -c conda-forge slow5tools</span>
+conda activate slow5-tools
+
+<span class="token comment"># define sample to process</span>
+<span class="token assign-left variable">SAMPLE</span><span class="token operator">=</span><span class="token string">&apos;PBXP289487&apos;</span>
+
+<span class="token comment"># split blow5</span>
+slow5tools <span class="token function">split</span> /work/datasets/compgen/garvan/<span class="token variable">$SAMPLE</span>/<span class="token variable">$SAMPLE</span>/ <span class="token punctuation">\</span>
+  -d /work/datasets/compgen/garvan/<span class="token variable">$SAMPLE</span>/<span class="token variable">$SAMPLE</span>/blow5/ <span class="token punctuation">\</span>
+  -r <span class="token number">4000</span> <span class="token punctuation">\</span>
+  -t <span class="token number">24</span>
+
+<span class="token comment"># convert to fast5</span>
+slow5tools s2f -p <span class="token number">24</span> <span class="token punctuation">\</span>
+  /work/datasets/compgen/garvan/<span class="token variable">$SAMPLE</span>/<span class="token variable">$SAMPLE</span>/blow5/ <span class="token punctuation">\</span>
+  -d /work/datasets/compgen/garvan/<span class="token variable">$SAMPLE</span>/<span class="token variable">$SAMPLE</span>/fast5
+
+<span class="token comment"># Notes:</span>
+<span class="token comment"># this script will convert slow5/blow5 encoded ONT data back to the original fast5</span>
+<span class="token comment"># format, which is required for basecalling. The processing is greatly sped up by</span>
+<span class="token comment"># using multiple CPU threads.</span>
+</pre><h3 class="mume-header" id="2-gpu-processing-guppy-remora-alignment">2. GPU processing (Guppy + Remora + alignment)</h3>
+
+<p>This is currently the only step that benefits greatly from GPU usage. Guppy is running SUP (super accuracy basecalling), plus Remora for methylation calling, as well as performing alignment against GRCh38 using minimap2 in this step.</p>
+<p><strong>NOTE:</strong> Guppy basecalling requires the latest version of Guppy to be downlaoded from the Nanopore Community page. If you are a ONT customer you have access to this via your account.</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash"><span class="token shebang important">#!/bin/bash -l</span>
+<span class="token comment">#PBS -N ont-guppy-gpu</span>
+<span class="token comment">#PBS -l select=1:ncpus=16:mem=52gb:ngpus=2:gputype=A100</span>
+<span class="token comment">#PBS -l walltime=36:00:00</span>
+<span class="token comment">#PBS -M miles.benton@nanoporetech.com</span>
+
+<span class="token comment"># define sample to process</span>
+<span class="token assign-left variable">INPUTDIR</span><span class="token operator">=</span><span class="token string">&quot;/data/minknow/data/IPS_CNV_6Sep_P2/C3P5/20220906_1602_P2S_00011-2_PAM87954_6e6659a8/&quot;</span>
+<span class="token assign-left variable">OUTPUTDIR</span><span class="token operator">=</span><span class="token string">&quot;/data/basecalled/C35P5&quot;</span>
+<span class="token assign-left variable">GUPPYPATH</span><span class="token operator">=</span><span class="token string">&quot;/public-data/software/guppy/ont-guppy/bin/&quot;</span>
+<span class="token assign-left variable">CONFIG</span><span class="token operator">=</span><span class="token string">&quot;dna_r10.4.1_e8.2_400bps_modbases_5mc_cg_sup_prom.cfg&quot;</span>
+<span class="token assign-left variable">REF</span><span class="token operator">=</span><span class="token string">&quot;/public-data/references/GRCh38/GCA_000001405.15_GRCh38_no_alt_analysis_set.fna&quot;</span>
+
+<span class="token comment"># Run Guppy+Remora+Alignment - check paths and parameters are correct</span>
+<span class="token string">&quot;<span class="token variable">${GUPPYPATH}</span>&quot;</span>./guppy_basecaller <span class="token punctuation">\</span>
+  -c <span class="token string">&quot;<span class="token variable">${CONFIG}</span>&quot;</span> <span class="token punctuation">\</span>
+  -a <span class="token string">&quot;<span class="token variable">${REF}</span>&quot;</span> <span class="token punctuation">\</span>
+  -i <span class="token string">&quot;<span class="token variable">${INPUTDIR}</span>&quot;</span> <span class="token punctuation">\</span>
+  -s <span class="token string">&quot;<span class="token variable">${OUTPUTDIR}</span>&quot;</span> <span class="token punctuation">\</span>
+  --chunks_per_runner <span class="token number">412</span> <span class="token punctuation">\</span>
+  --recursive <span class="token punctuation">\</span>
+  --device <span class="token string">&quot;cuda:0,1&quot;</span> <span class="token punctuation">\</span>
+  --bam_out <span class="token punctuation">\</span>
+  --index
+</pre><h4 class="mume-header" id="duplex-calling">duplex calling</h4>
+
+<p>Duplex calling is &quot;new&quot; and only available on R10.4+ flowcells.</p>
+<p>Note that this step hasn&apos;t yet been fully integrated into the workflow. The below will provide an example on how to set up and run everything required to generate duplex reads.</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash"><span class="token shebang important">#!/bin/bash -l</span>
+
+<span class="token comment"># duplex calling</span>
+<span class="token comment"># set up</span>
+python3 -m venv venv --prompt duplex
+<span class="token builtin class-name">.</span> venv/bin/activate
+pip <span class="token function">install</span> duplex_tools
+<span class="token comment"># source the environment</span>
+<span class="token builtin class-name">source</span> /public-data/software/venv/bin/activate
+
+<span class="token comment"># make directory for duplex data</span>
+<span class="token function">mkdir</span> <span class="token string">&quot;<span class="token variable">${OUTPUTDIR}</span>&quot;</span>/duplex
+
+<span class="token comment"># identify pairs</span>
+duplex_tools pairs_from_summary <span class="token string">&quot;<span class="token variable">${OUTPUTDIR}</span>&quot;</span>/sequencing_summary.txt <span class="token string">&quot;<span class="token variable">${OUTPUTDIR}</span>&quot;</span>/duplex/
+<span class="token comment"># filter pairs</span>
+duplex_tools filter_pairs <span class="token string">&quot;<span class="token variable">${OUTPUTDIR}</span>&quot;</span>/duplex/pair_ids.txt <span class="token string">&quot;<span class="token variable">${INPUTDIR}</span>&quot;</span>/fastq_pass/
+
+<span class="token comment"># duplex basecalling</span>
+<span class="token string">&quot;<span class="token variable">${GUPPYPATH}</span>&quot;</span>./guppy_basecaller_duplex <span class="token punctuation">\</span>
+  -i <span class="token string">&quot;<span class="token variable">${INPUTDIR}</span>&quot;</span> <span class="token punctuation">\</span>
+  -r <span class="token punctuation">\</span>
+  -s <span class="token string">&quot;<span class="token variable">${OUTPUTDIR}</span>&quot;</span>/duplex/ <span class="token punctuation">\</span>
+  -x <span class="token string">&apos;cuda:0,1&apos;</span> <span class="token punctuation">\</span>
+  -c dna_r10.4.1_e8.2_400bps_sup.cfg <span class="token punctuation">\</span>
+  --chunks_per_runner <span class="token number">412</span> <span class="token punctuation">\</span>
+  --duplex_pairing_mode from_pair_list <span class="token punctuation">\</span>
+  --duplex_pairing_file <span class="token string">&quot;<span class="token variable">${OUTPUTDIR}</span>&quot;</span>/duplex/pair_ids_filtered.txt
+
+<span class="token comment"># Notes:</span>
+<span class="token comment"># remember to change --chunks_per_runner to fit with the GPU resources that are available</span>
+</pre><h3 class="mume-header" id="3-merge-bams">3. merge bams</h3>
+
+<p>Guppy generates a bam file per fast5 file, so these are required to me merged for further processing.</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash"><span class="token shebang important">#!/bin/bash -l</span>
+<span class="token comment">#PBS -N ont-bam-merge</span>
+<span class="token comment">#PBS -l select=1:ncpus=16:mem=64gb</span>
+<span class="token comment">#PBS -l walltime=24:00:00</span>
+<span class="token comment">#PBS -M miles.benton@nanoporetech.com</span>
+
+<span class="token comment"># conda</span>
+<span class="token comment"># run the below first time to set up environment</span>
+<span class="token comment"># conda create --name genome-tools  -c bioconda -c conda-forge samtools sambamba bamtools</span>
+conda activate genome-tools
+
+<span class="token comment"># define variables</span>
+<span class="token assign-left variable">WKDIR</span><span class="token operator">=</span><span class="token string">&apos;/data/basecalled/&apos;</span>
+<span class="token assign-left variable">SAMPLE</span><span class="token operator">=</span><span class="token string">&apos;C1P5&apos;</span>
+
+<span class="token comment"># make bam dir and move to working dir</span>
+<span class="token function">mkdir</span> <span class="token variable">${WKDIR}</span>/<span class="token variable">${SAMPLE}</span>/bam
+<span class="token builtin class-name">cd</span> <span class="token variable">${WKDIR}</span>/<span class="token variable">${SAMPLE}</span>
+
+<span class="token comment"># set a soft ulimt (number of open files)</span>
+<span class="token builtin class-name">ulimit</span> -n <span class="token number">6000</span>
+
+<span class="token comment"># bamtools</span>
+<span class="token function">ls</span> pass/*.bam <span class="token operator">&gt;</span> ./bam/bam_list.txt
+bamtools merge -list ./bam/bam_list.txt -out ./bam/<span class="token variable">${SAMPLE}</span>_merged.bam
+sambamba <span class="token function">sort</span> -m 64GB -t <span class="token number">12</span> ./bam/<span class="token variable">${SAMPLE}</span>_merged.bam -o ./bam/<span class="token variable">${SAMPLE}</span>_sorted_merged.bam
+sambamba index -t <span class="token number">12</span> ./bam/<span class="token variable">${SAMPLE}</span>_sorted_merged.bam
+
+<span class="token comment"># Notes:</span>
+<span class="token comment"># merge all guppy output bams</span>
+</pre><h3 class="mume-header" id="4-wf-human-variation-clair3-sniffles2">4. wf-human-variation (clair3, sniffles2)</h3>
+
+<p><a href="https://github.com/epi2me-labs/wf-human-variation">https://github.com/epi2me-labs/wf-human-variation</a></p>
+<p>This is an in development pipeline that is part of our EPI2ME-labs bioinformatics tool set. At the moment this pipeline performs alignment, SNV calling (<code>clair3</code>), SV detection (<code>sniffles2</code>), and methylation calling (<code>modbam2bed</code>).</p>
+<p>Over time other steps of this workflow, i.e. CNV analysis, will likely make their way into <code>wf-human-variation</code>, so it&apos;s worth keeping an eye on updates to our software.</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash"><span class="token shebang important">#!/bin/bash -l</span>
+<span class="token comment">#PBS -N ont-variant-calling</span>
+<span class="token comment">#PBS -l select=1:ncpus=48:mem=128GB</span>
+<span class="token comment">#PBS -l walltime=24:00:00</span>
+<span class="token comment">#PBS -M miles.benton@nanoporetech.com</span>
+
+<span class="token comment"># define variables</span>
+<span class="token assign-left variable">WKDIR</span><span class="token operator">=</span><span class="token string">&apos;/data/basecalled/&apos;</span>
+<span class="token assign-left variable">SAMPLE</span><span class="token operator">=</span><span class="token string">&apos;C1P5&apos;</span>
+<span class="token assign-left variable">MODEL</span><span class="token operator">=</span><span class="token string">&apos;/public-data/software/rerio/clair3_models/r1041_e82_400bps_sup_g615&apos;</span>
+<span class="token assign-left variable">REFERENCE</span><span class="token operator">=</span><span class="token string">&apos;/public-data/references/GRCh38/GCA_000001405.15_GRCh38_no_alt_analysis_set.fna&apos;</span>
+<span class="token assign-left variable">TDREPETS</span><span class="token operator">=</span><span class="token string">&apos;/public-data/references/GRCh38/human_GRCh38_no_alt_analysis_set.trf.bed&apos;</span>
+<span class="token assign-left variable">OUTPUT</span><span class="token operator">=</span><span class="token string">&apos;results&apos;</span>
+<span class="token assign-left variable">NFCONFIG</span><span class="token operator">=</span><span class="token string">&apos;/public-data/configs/nextflow_local_overide.config&apos;</span>
+<span class="token comment"># note: created an overide config to provide modified CPU and Memory values</span>
+<span class="token comment"># change these values if you want to tweak performance based on resources</span>
+
+<span class="token comment"># move to working dir</span>
+<span class="token builtin class-name">cd</span> <span class="token variable">${WKDIR}</span>/<span class="token variable">${SAMPLE}</span>
+<span class="token function">mkdir</span> results
+
+<span class="token comment"># run Clair3 variant calling and sniffles2</span>
+nextflow -c <span class="token variable">${NFCONFIG}</span> run epi2me-labs/wf-human-variation <span class="token punctuation">\</span>
+  -resume <span class="token punctuation">\</span>
+  --threads <span class="token number">24</span> <span class="token punctuation">\</span>
+  -profile standard,local <span class="token punctuation">\</span>
+  --snp --sv <span class="token punctuation">\</span>
+  --phase_vcf <span class="token punctuation">\</span>
+  --use_longphase <span class="token punctuation">\</span>
+  --tr_bed <span class="token variable">${TDREPETS}</span> <span class="token punctuation">\</span>
+  --model <span class="token variable">${MODEL}</span> <span class="token punctuation">\</span>
+  --bam ./bam/<span class="token variable">${SAMPLE}</span>_sorted_merged.bam <span class="token punctuation">\</span>
+  --ref <span class="token variable">${REFERENCE}</span> <span class="token punctuation">\</span>
+  --out_dir <span class="token variable">${OUTPUT}</span>
+
+<span class="token comment"># Notes:</span>
+<span class="token comment"># This step calls the ONT wf-human-variation nextflow pipeline</span>
+<span class="token comment"># (https://github.com/epi2me-labs/wf-human-variation), which performs variant calling (clair3),</span>
+<span class="token comment"># phase marking, and structural variant calling using sniffles2 (sniffles2 was a seperate step</span>
+<span class="token comment"># previously). </span>
+</pre><h3 class="mume-header" id="5-whatshap-phasing">5. whatshap (phasing)</h3>
+
+<p>This step phases the reads based on the variants that had been assigned haplotypes in the <code>clair3</code> step above. Having phased information is very useful for generating things such as allele specific methylation.</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash"><span class="token shebang important">#!/bin/bash -l</span>
+<span class="token comment">#PBS -N ont-whatshap-phaseing</span>
+<span class="token comment">#PBS -l select=1:ncpus=16:mem=64GB</span>
+<span class="token comment">#PBS -l walltime=24:00:00</span>
+<span class="token comment">#PBS -M miles.benton@nanoporetech.com</span>
+
+<span class="token comment"># conda</span>
+<span class="token comment"># run the below first time to set up environment</span>
+<span class="token comment"># conda create --name whatshap -c bioconda -c conda-forge whatshap samtools</span>
+conda activate whatshap
+
+<span class="token comment"># define variables</span>
+<span class="token assign-left variable">WKDIR</span><span class="token operator">=</span><span class="token string">&apos;/data/basecalled/&apos;</span>
+<span class="token assign-left variable">SAMPLE</span><span class="token operator">=</span><span class="token string">&apos;C3P5&apos;</span>
+<span class="token assign-left variable">REFERENCE</span><span class="token operator">=</span><span class="token string">&apos;/public-data/references/GRCh38/GCA_000001405.15_GRCh38_no_alt_analysis_set.fna&apos;</span>
+<span class="token assign-left variable">OUTPUT</span><span class="token operator">=</span><span class="token string">&apos;results&apos;</span>
+
+<span class="token comment"># move to working dir</span>
+<span class="token builtin class-name">cd</span> <span class="token variable">${WKDIR}</span>/<span class="token variable">${SAMPLE}</span>
+
+<span class="token comment"># whatshap phase tagging of bam output</span>
+whatshap haplotag <span class="token punctuation">\</span>
+    --ignore-read-groups <span class="token punctuation">\</span>
+    --output ./bam/<span class="token variable">${SAMPLE}</span>_sorted_merged.hp.bam  <span class="token punctuation">\</span>
+    --reference <span class="token variable">${REFERENCE}</span> <span class="token punctuation">\</span>
+    <span class="token variable">${OUTPUT}</span>/all.wf_snp.vcf.gz ./bam/<span class="token variable">${SAMPLE}</span>_sorted_merged.bam
+<span class="token comment"># index bam</span>
+samtools index -@ <span class="token number">16</span> ./bam/<span class="token variable">${SAMPLE}</span>_sorted_merged.hp.bam
+
+<span class="token comment"># conda</span>
+conda deactivate
+
+<span class="token comment"># Notes:</span>
+<span class="token comment"># this step phases the data based on the clair3 output and generates a </span>
+<span class="token comment"># phased bam file. This contains information assigning reads to each</span>
+<span class="token comment"># haplotype. At this stage the bam is able to loaded into a genome </span>
+<span class="token comment"># viewer/browser and contains aligned reads, with base modification</span>
+<span class="token comment"># (methylation) information, as well as the haplotype information.</span>
+</pre><h3 class="mume-header" id="6-methylation-calling">6. methylation calling</h3>
+
+<p>This methylation calling step generates three bed files:</p>
+<ul>
+<li>an aggragated methylation call per CpG site</li>
+<li>methylation calls for haplotype 1</li>
+<li>methylation calls for haplotype 2</li>
+</ul>
+<p>The most recent version of the <code>wf-human-variation</code> (as of 2022-10-12) pipeline currently generates the first bed but doesn&apos;t provide haplotype specific methylation data.</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash"><span class="token shebang important">#!/bin/bash -l</span>
+<span class="token comment">#PBS -N ont-methyl-calling</span>
+<span class="token comment">#PBS -l select=1:ncpus=16:mem=32GB</span>
+<span class="token comment">#PBS -l walltime=06:00:00</span>
+<span class="token comment">#PBS -M miles.benton@nanoporetech.com</span>
+
+<span class="token comment"># conda</span>
+<span class="token comment"># create --name modbam2bed -c bioconda -c conda-forge -c epi2melabs modbam2bed</span>
+conda activate modbam2bed
+
+<span class="token comment"># define variables</span>
+<span class="token assign-left variable">WKDIR</span><span class="token operator">=</span><span class="token string">&apos;/data/basecalled/&apos;</span>
+<span class="token assign-left variable">SAMPLE</span><span class="token operator">=</span><span class="token string">&apos;C1P5&apos;</span>
+<span class="token assign-left variable">REFERENCE</span><span class="token operator">=</span><span class="token string">&apos;/public-data/references/GRCh38/GCA_000001405.15_GRCh38_no_alt_analysis_set.fna&apos;</span>
+
+<span class="token comment"># move to working dir</span>
+<span class="token builtin class-name">cd</span> <span class="token variable">${WKDIR}</span>/<span class="token variable">${SAMPLE}</span>
+<span class="token function">mkdir</span> bed
+
+<span class="token comment"># create methylation bed files</span>
+<span class="token keyword keyword-for">for</span> <span class="token for-or-select variable">HP</span> <span class="token keyword keyword-in">in</span> <span class="token number">1</span> <span class="token number">2</span><span class="token punctuation">;</span> <span class="token keyword keyword-do">do</span>
+    modbam2bed <span class="token punctuation">\</span>
+        -e -m 5mC --cpg -t <span class="token number">16</span> --haplotype <span class="token variable">${HP}</span> <span class="token punctuation">\</span>
+        <span class="token variable">${REFERENCE}</span> <span class="token punctuation">\</span>
+        ./bam/<span class="token variable">${SAMPLE}</span>_sorted_merged.hp.bam <span class="token punctuation">\</span>
+        <span class="token operator">|</span> bgzip -c <span class="token operator">&gt;</span> ./bed/<span class="token variable">${SAMPLE}</span>_methylation.hp<span class="token variable">${HP}</span>.cpg.bed.gz
+<span class="token keyword keyword-done">done</span><span class="token punctuation">;</span>
+
+<span class="token comment"># create an aggregated bed file</span>
+modbam2bed <span class="token punctuation">\</span>
+  -e -m 5mC --cpg --aggregate -t <span class="token number">16</span> <span class="token punctuation">\</span>
+  <span class="token variable">${REFERENCE}</span> <span class="token punctuation">\</span>
+  ./bam/<span class="token variable">${SAMPLE}</span>_sorted_merged.hp.bam <span class="token punctuation">\</span>
+  <span class="token operator">|</span> bgzip -c <span class="token operator">&gt;</span> ./bed/<span class="token variable">${SAMPLE}</span>_methylation.aggregated.cpg.bed.gz
+
+<span class="token comment"># Notes:</span>
+<span class="token comment"># this step extracts the methylation information from the bam file, generating</span>
+<span class="token comment"># bed files. There are two processes here, the first creates two bed files, one</span>
+<span class="token comment"># for each haplotype. These are very useful for exploring allele specific methylation.</span>
+<span class="token comment"># The second process generates a single aggragated bed file, it merges the </span>
+<span class="token comment"># haplotype data to give site specific methylation. It should be noted that this is </span>
+<span class="token comment"># per strand, so some processing will be required to &apos;collapse&apos; the data to a</span>
+<span class="token comment"># single CpG site, but this type of work is usually performed in the downstream\</span>
+<span class="token comment"># analysis, using packages such as methylkit.</span>
+</pre><h3 class="mume-header" id="7-alternate-sv-methods">7. Alternate SV methods</h3>
+
+<p>The default method for calling structural variants is <code>sniffles2</code>, which is now built into the EPI2ME-labs <code>wf-human-variation</code> pipeline. If you wish to explore other tools it&apos;s easy enough to run them on the data generated from the previous steps.</p>
+<h4 class="mume-header" id="cutesv">cuteSV</h4>
+
+<p><a href="https://github.com/tjiangHIT/cuteSV">https://github.com/tjiangHIT/cuteSV</a></p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash"><span class="token shebang important">#!/bin/bash -l</span>
+<span class="token comment">#PBS -N ont-sv-cutesv</span>
+<span class="token comment">#PBS -l select=1:ncpus=16:mem=128GB</span>
+<span class="token comment">#PBS -l walltime=06:00:00</span>
+<span class="token comment">#PBS -M miles.benton@nanoporetech.com</span>
+
+<span class="token comment"># conda</span>
+<span class="token comment"># run the below first time to set up environment</span>
+<span class="token comment"># conda create --name cutesv -c bioconda cutesv</span>
+conda activate cutesv
+
+<span class="token comment"># define variables</span>
+<span class="token assign-left variable">WKDIR</span><span class="token operator">=</span><span class="token string">&apos;/work/ont/WGS&apos;</span>
+<span class="token assign-left variable">SAMPLE</span><span class="token operator">=</span><span class="token string">&apos;PBXP289487&apos;</span>
+<span class="token assign-left variable">REFERENCE</span><span class="token operator">=</span><span class="token string">&apos;/work/ont/reference/GCA_000001405.15_GRCh38_no_alt_analysis_set.fasta&apos;</span>
+<span class="token assign-left variable">OUTPUT</span><span class="token operator">=</span><span class="token string">&apos;results&apos;</span>
+
+<span class="token comment"># move to working dir</span>
+<span class="token builtin class-name">cd</span> <span class="token variable">${WKDIR}</span>/<span class="token variable">${SAMPLE}</span>
+<span class="token function">mkdir</span> cutesv_tmp
+
+<span class="token comment"># cuteSV processing</span>
+cuteSV -t <span class="token number">16</span> <span class="token punctuation">\</span>
+  --max_cluster_bias_INS <span class="token number">100</span> <span class="token punctuation">\</span>
+  --diff_ratio_merging_INS <span class="token number">0.3</span> <span class="token punctuation">\</span>
+  --max_cluster_bias_DEL <span class="token number">100</span> <span class="token punctuation">\</span>
+  --diff_ratio_merging_DEL <span class="token number">0.3</span> <span class="token punctuation">\</span>
+  ./bam/<span class="token variable">${SAMPLE}</span>_sorted_merged.hp.bam <span class="token punctuation">\</span>
+  <span class="token variable">${REFERENCE}</span> <span class="token punctuation">\</span>
+  <span class="token variable">${OUTPUT}</span>/<span class="token variable">${SAMPLE}</span>_sv_cutesv.vcf <span class="token punctuation">\</span>
+  ./cutesv_tmp
+
+<span class="token comment"># Notes:</span>
+<span class="token comment"># this step is for evaluation of another structural variant caller, cuteSV. It&apos;s </span>
+<span class="token comment"># often nice to have the ability to compare results between various tools. As </span>
+<span class="token comment"># SVs are important to this project this step has been included in the process.</span>
+<span class="token comment"># For other projects it may well be enough to stop after processing step 06.</span>
+<span class="token comment"># This process outputs a vcf file with the structural variation recorded per</span>
+<span class="token comment"># line.</span>
+</pre><h4 class="mume-header" id="svim">SVIM</h4>
+
+<p><a href="https://github.com/eldariont/svim">https://github.com/eldariont/svim</a></p>
+<p><strong>... WORK IN PROGRESS ...</strong></p>
+<h4 class="mume-header" id="svision">Svision</h4>
+
+<p><a href="https://github.com/xjtu-omics/SVision">https://github.com/xjtu-omics/SVision</a></p>
+<p><strong>... WORK IN PROGRESS ...</strong></p>
+<h3 class="mume-header" id="8-wf-human-cnv">8. wf-human-cnv</h3>
+
+<p><strong>... WORK IN PROGRESS ...</strong></p>
+<p>We have recently release our CNV calling Nextflow pipeline (<a href="https://github.com/epi2me-labs/wf-cnv">link</a>). This module is again self contained and can be run at any stage.</p>
+<p>The below is an example of how to run the pipeline on an ONT data set:</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash"><span class="token shebang important">#!/bin/bash -l</span>
+
+nextflow run epi2me-labs/wf-cnv <span class="token punctuation">\</span>
+  --fastq /data/basecalled/fastq/ <span class="token punctuation">\</span>
+  --sample_sheet sample_sheet.csv <span class="token punctuation">\</span>
+  --fasta /public-data/references/GRCh38/GCA_000001405.15_GRCh38_no_alt_analysis_set.fna <span class="token punctuation">\</span>
+  --genome hg38 --bin_size <span class="token number">500</span>
+</pre><p>This CNV pipeline will run on the basecalled <code>fastq</code> files, it will run an alignment against the provided reference genome, and then perform CNV analysis using <code>QDNAseq</code>.</p>
+<hr>
+<p style="text-align: center;"> Document created by <b>Miles Benton</b> and the Singapore - New Zealand
+Applications Project Support Team, Oxford Nanopore Technologies </p>
+<p style="text-align: center;"> <a href ;> miles.benton@nanoporetech.com </a> </p>
+<p style="text-align: center;"> <a href="https://nanoporetech.com" ; target="blank"> nanoporetech.com </a> </p>
+
+      </div>
+      
+      
+    
+    
+    <script>
+// config mermaid init call
+// http://knsv.github.io/mermaid/#configuration
+//
+// You can edit the 'MERMAID_CONFIG' variable below.
+MERMAID_CONFIG = {
+  startOnLoad: false
+}
+
+if (window['MERMAID_CONFIG']) {
+  window['MERMAID_CONFIG'].startOnLoad = false
+  window['MERMAID_CONFIG'].cloneCssStyles = false
+  window['MERMAID_CONFIG'].theme = "default"
+}
+mermaid.initialize(window['MERMAID_CONFIG'] || {})
+if (typeof(window['Reveal']) !== 'undefined') {
+  function mermaidRevealHelper(event) {
+    var currentSlide = event.currentSlide
+    var diagrams = currentSlide.querySelectorAll('.mermaid')
+    for (var i = 0; i < diagrams.length; i++) {
+      var diagram = diagrams[i]
+      if (!diagram.hasAttribute('data-processed')) {
+        mermaid.init(null, diagram, ()=> {
+          Reveal.slide(event.indexh, event.indexv)
+        })
+      }
+    }
+  }
+  Reveal.addEventListener('slidechanged', mermaidRevealHelper)
+  Reveal.addEventListener('ready', mermaidRevealHelper)
+} else {
+  mermaid.init(null, document.getElementsByClassName('mermaid'))
+}
+</script>
+    
+    
+    
+    
+    
+  
+    </body></html>
