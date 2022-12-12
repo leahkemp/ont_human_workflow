@@ -1,2 +1,8 @@
 
 data/
+
+data_old/
+
+logs/slurm*
+
+results/0*

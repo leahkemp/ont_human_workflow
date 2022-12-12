@@ -1,12 +1,25 @@
 #!/bin/bash -l
 
-# conda
-conda activate modbam2bed
+#SBATCH --partition prod
+#SBATCH --job-name=04-ont-methyl-calling
+#SBATCH --time=6:00:00
+#SBATCH --ntasks 1
+#SBATCH --cpus-per-task 16
+#SBATCH --mem 32G
+#SBATCH --output="./logs/slurm-%j-%x.out"
 
 # define variables
 WKDIR='/data/basecalled/thalassemia_tmp/'
 SAMPLE='proband'
 REFERENCE='/public-data/references/GRCh38/GCA_000001405.15_GRCh38_no_alt_analysis_set.fna'
+
+# set the shell to be used by conda for this script (and re-start shell to implement changes)
+conda init bash
+source ~/.bashrc
+
+# create conda environment with modbam2bed installed and activate it
+mamba env create --force -f ${WKDIR}/scripts/envs/conda.modbam2bed.0.6.3.yml
+conda activate modbam2bed
 
 # move to working dir
 cd ${WKDIR}/${SAMPLE}

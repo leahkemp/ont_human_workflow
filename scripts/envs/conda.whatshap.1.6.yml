@@ -1,0 +1,7 @@
+name: whatshap
+channels:
+  - conda-forge
+  - bioconda
+  - defaults
+dependencies:
+  - whatshap=1.6

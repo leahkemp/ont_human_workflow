@@ -248,7 +248,7 @@ MODEL='/public-data/software/rerio/clair3_models/r1041_e82_400bps_sup_g615'
 REFERENCE='/public-data/references/GRCh38/GCA_000001405.15_GRCh38_no_alt_analysis_set.fna'
 TDREPETS='/public-data/references/GRCh38/human_GRCh38_no_alt_analysis_set.trf.bed'
 OUTPUT='results'
-NFCONFIG='/public-data/configs/nextflow_local_overide.config'
+NFCONFIG='/public-data/configs/nextflow.config'
 # note: created an overide config to provide modified CPU and Memory values
 # change these values if you want to tweak performance based on resources
 
