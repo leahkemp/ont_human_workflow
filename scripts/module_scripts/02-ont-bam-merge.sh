@@ -1,5 +1,7 @@
 #!/bin/bash -l
 
+#SBATCH --mail-type=END,FAIL
+#SBATCH --mail-user=leah.kemp@esr.cri.nz
 #SBATCH --partition prod
 #SBATCH --job-name=01-ont-bam-merge
 #SBATCH --time=24:00:00

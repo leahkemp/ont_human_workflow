@@ -1,5 +1,7 @@
 #!/bin/bash -l
 
+#SBATCH --mail-type=END,FAIL
+#SBATCH --mail-user=leah.kemp@esr.cri.nz
 #SBATCH --partition prod
 #SBATCH --job-name=04-ont-methyl-calling
 #SBATCH --time=6:00:00

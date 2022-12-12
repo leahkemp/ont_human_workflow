@@ -1,5 +1,7 @@
 #!/bin/bash -l
 
+#SBATCH --mail-type=END,FAIL
+#SBATCH --mail-user=leah.kemp@esr.cri.nz
 #SBATCH --nodelist=KSCPROD-DATA2
 #SBATCH --job-name=01-cthulhu-guppy-gpu
 #SBATCH --time=36:00:00
