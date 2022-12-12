@@ -12,7 +12,7 @@
 
 # define variables
 WKDIR='/NGS/humangenomics/active/2022/run/ont_human_workflow/'
-SAMPLE='demo'
+SAMPLE='OM1052A'
 REFERENCE='/NGS/clinicalgenomics/public_data/ncbi/GRCh38/GCA_000001405.15_GRCh38_no_alt_analysis_set.fasta.gz'
 OUTPUT='/NGS/humangenomics/active/2022/run/ont_human_workflow/results/05-ont-sv-cutesv/'
 

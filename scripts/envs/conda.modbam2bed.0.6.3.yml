@@ -1,4 +1,4 @@
-name: modbam2bed
+name: modbam2bed.0.6.3
 channels:
   - epi2melabs
   - conda-forge

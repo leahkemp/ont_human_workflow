@@ -12,16 +12,20 @@
 
 # define variables
 WKDIR='/NGS/humangenomics/active/2022/run/ont_human_workflow/'
-SAMPLE='demo'
+SAMPLE='OM1052A'
 REFERENCE='/NGS/clinicalgenomics/public_data/ncbi/GRCh38/GCA_000001405.15_GRCh38_no_alt_analysis_set.fasta.gz'
 
 # set the shell to be used by conda for this script (and re-start shell to implement changes)
 conda init bash
 source ~/.bashrc
 
-# create conda environment with nextflow installed and activate it
-mamba env create --force -f ${WKDIR}/scripts/envs/conda.nextflow.22.10.0.yml
-conda activate nextflow
+# create conda environment with nextflow installed
+mamba env create \
+--force \
+-f ${WKDIR}/scripts/envs/conda.nextflow.22.10.0.yml
+
+# activate nextflow conda environment
+conda activate nextflow.22.10.0
 
 # run copy number variant calling
 nextflow run epi2me-labs/wf-cnv \

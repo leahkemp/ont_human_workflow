@@ -1,4 +1,4 @@
-name: sambamba
+name: sambamba.0.8.2
 channels:
   - conda-forge
   - bioconda

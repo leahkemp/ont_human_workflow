@@ -27,9 +27,13 @@ mkdir ${WKDIR}/results/02-ont-human-variation-calling/
 conda init bash
 source ~/.bashrc
 
-# create conda environment with nextflow installed and activate it
-mamba env create --force -f ${WKDIR}/scripts/envs/conda.nextflow.22.10.0.yml
-conda activate nextflow
+# create conda environment with nextflow installed
+mamba env create \
+--force \
+-f ${WKDIR}/scripts/envs/conda.nextflow.22.10.0.yml
+
+# activate nextflow conda environment
+conda activate nextflow.22.10.0
 
 # run Clair3 variant calling and sniffles2
 nextflow run -c ${NFCONFIG} epi2me-labs/wf-human-variation \

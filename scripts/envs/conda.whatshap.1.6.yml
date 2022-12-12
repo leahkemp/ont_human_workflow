@@ -1,4 +1,4 @@
-name: whatshap
+name: whatshap.1.6
 channels:
   - conda-forge
   - bioconda

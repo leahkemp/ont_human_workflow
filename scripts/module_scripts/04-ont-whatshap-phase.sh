@@ -20,12 +20,16 @@ OUTPUT='results'
 conda init bash
 source ~/.bashrc
 
-# create conda environment with nextflow installed and activate it
+# create conda environment with whatshap installed
 # after looking further into it Guix don't plan to support the direct linking of
 # base libs like libz in python virtual environments. I need to think more about
 # this issue, but for now conda works.
-mamba env create --force -f ${WKDIR}/scripts/envs/conda.whatshap.1.6.yml
-conda activate nextflow
+mamba env create \
+--force \
+-f ${WKDIR}/scripts/envs/conda.whatshap.1.6.yml
+
+# activate whatshap conda environment
+conda activate whatshap.1.6
 
 # move to working dir
 cd ${WKDIR}/${SAMPLE}
@@ -39,12 +43,17 @@ whatshap haplotag \
 ${WKDIR}/results/03-ont-whatshap-phase/all.wf_snp.vcf.gz \
 ${WKDIR}/results/03-ont-whatshap-phase/${SAMPLE}_sorted_merged.bam
 
-# create conda environment with samtools installed and activate it
-mamba env create --force -f ${WKDIR}/scripts/envs/conda.samtools.1.16.1.yml
-conda activate samtools
+# create conda environment with samtools installed
+mamba env create \
+--force \
+-f ${WKDIR}/scripts/envs/conda.samtools.1.16.1.yml
+
+# activate samtools conda environment
+conda activate samtools.1.16.1
 
 # index bam
-samtools index -@ 16 ${WKDIR}/results/00-cthulhu-guppy-gpu/bam/${SAMPLE}_sorted_merged.hp.bam
+samtools index \
+-@ 16 ${WKDIR}/results/00-cthulhu-guppy-gpu/bam/${SAMPLE}_sorted_merged.hp.bam
 
 # conda
 conda deactivate

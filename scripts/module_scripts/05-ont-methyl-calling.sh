@@ -12,7 +12,7 @@
 
 # define variables
 WKDIR='/data/basecalled/thalassemia_tmp/'
-SAMPLE='proband'
+SAMPLE='OM1052A'
 REFERENCE='/public-data/references/GRCh38/GCA_000001405.15_GRCh38_no_alt_analysis_set.fna'
 
 # set the shell to be used by conda for this script (and re-start shell to implement changes)
@@ -20,8 +20,12 @@ conda init bash
 source ~/.bashrc
 
 # create conda environment with modbam2bed installed and activate it
-mamba env create --force -f ${WKDIR}/scripts/envs/conda.modbam2bed.0.6.3.yml
-conda activate modbam2bed
+mamba env create \
+--force \
+-f ${WKDIR}/scripts/envs/conda.modbam2bed.0.6.3.yml
+
+# activate modbam2bed conda environment
+conda activate modbam2bed.0.6.3
 
 # move to working dir
 cd ${WKDIR}/${SAMPLE}

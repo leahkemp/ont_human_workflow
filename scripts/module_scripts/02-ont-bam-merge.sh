@@ -3,8 +3,8 @@
 #SBATCH --mail-type=END,FAIL
 #SBATCH --mail-user=leah.kemp@esr.cri.nz
 #SBATCH --partition prod
-#SBATCH --job-name=01-ont-bam-merge
-#SBATCH --time=24:00:00
+#SBATCH --job-name=02-ont-bam-merge
+#SBATCH --time=00:30:00
 #SBATCH --ntasks 1
 #SBATCH --cpus-per-task 16
 #SBATCH --mem 64G
@@ -12,29 +12,49 @@
 
 # define variables
 WKDIR='/NGS/humangenomics/active/2022/run/ont_human_workflow/'
-SAMPLE="demo"
+SAMPLE="OM1052A"
 
-# make bam dir and move to working dir
-mkdir ${WKDIR}/${SAMPLE}/bam
-cd ${WKDIR}/${SAMPLE}
+# cleaup old ouputs of this script to avoid writing to file twice
+rm -rf ${WKDIR}/results/02-ont-bam-merge/bam/${SAMPLE}*
 
-# set a soft ulimt (number of open files)
-ulimit -n 6000
+# make bam dir
+mkdir -p ${WKDIR}/results/02-ont-bam-merge/bam/
 
-# bamtools
-ls ${WKDIR}/results/00-cthulhu-guppy-gpu/basecalled/pass/*.bam > ${WKDIR}/results/00-cthulhu-guppy-gpu/bam/bam_list.txt
+# create list of bam files to merge
+ls ${WKDIR}/results/01-cthulhu-guppy-gpu/pass/*.bam > ${WKDIR}/results/02-ont-bam-merge/bam/${SAMPLE}_bam_list.txt
 
-# create conda environment with bamtools installed and activate it
-mamba env create --force -f ${WKDIR}/scripts/envs/conda.bamtools.2.5.2.yml
-conda activate bamtools
+# create conda environment with bamtools installed
+mamba env create \
+--force \
+-f ${WKDIR}/scripts/envs/conda.bamtools.2.5.2.yml
+
+# activate bamtools conda environment
+conda activate bamtools.2.5.2
 
 # merge bams
-bamtools merge -list ${WKDIR}/results/00-cthulhu-guppy-gpu/bam/bam_list.txt -out ${WKDIR}/results/00-cthulhu-guppy-gpu/bam//${SAMPLE}_merged.bam
+bamtools merge \
+-list ${WKDIR}/results/02-ont-bam-merge/bam/${SAMPLE}_bam_list.txt \
+-out ${WKDIR}/results/02-ont-bam-merge/bam/${SAMPLE}_merged.bam
 
-# create conda environment with sambamba installed and activate it
-mamba env create --force -f ${WKDIR}/scripts/envs/conda.sambamba.0.8.2.yml
-conda activate sambamba
+# create conda environment with sambamba installed
+mamba env create \
+--force \
+-f ${WKDIR}/scripts/envs/conda.sambamba.0.8.2.yml
 
-# sort and index bams
-sambamba sort -m 64GB -t 12 ${WKDIR}/results/00-cthulhu-guppy-gpu/bam/${SAMPLE}_merged.bam -o ${WKDIR}/results/00-cthulhu-guppy-gpu/bam/${SAMPLE}_sorted_merged.bam
-sambamba index -t 12 ${WKDIR}/results/00-cthulhu-guppy-gpu/bam/${SAMPLE}_sorted_merged.bam
+# activate sambamba conda environment
+conda activate sambamba.0.8.2
+
+# sort bams
+sambamba sort \
+-m 64GB \
+-t 12 \
+${WKDIR}/results/02-ont-bam-merge/bam/${SAMPLE}_merged.bam \
+-o ${WKDIR}/results/02-ont-bam-merge/bam/${SAMPLE}_merged_sorted.bam
+
+# index bams
+sambamba index \
+-t 12 \
+${WKDIR}/results/02-ont-bam-merge/bam/${SAMPLE}_merged_sorted.bam
+
+# cleanup uneeded files
+rm -rf ${WKDIR}/results/02-ont-bam-merge/bam/${SAMPLE}_merged.bam
