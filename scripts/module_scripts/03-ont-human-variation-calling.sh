@@ -3,7 +3,7 @@
 #SBATCH --mail-type=END,FAIL
 #SBATCH --mail-user=leah.kemp@esr.cri.nz
 #SBATCH --partition prod
-#SBATCH --job-name=02-ont-human-variation-calling
+#SBATCH --job-name=03-ont-human-variation-calling
 #SBATCH --time=24:00:00
 #SBATCH --ntasks 1
 #SBATCH --cpus-per-task 48
@@ -12,16 +12,19 @@
 
 # define variables
 WKDIR='/NGS/humangenomics/active/2022/run/ont_human_workflow/'
-SAMPLE='demo'
+SAMPLE='OM1052A'
 MODEL='/NGS/clinicalgenomics/public_data/clair3_models/ont_guppy5/'
 REFERENCE='/NGS/clinicalgenomics/public_data/ncbi/GRCh38/GCA_000001405.15_GRCh38_no_alt_analysis_set.fasta.gz'
-TDREPETS='/NGS/humangenomics/active/2022/run/ont_human_workflow/data/demo_data/human_GRCh38_no_alt_analysis_set.trf.bed'
-NFCONFIG='/NGS/humangenomics/active/2022/run/ont_human_workflow/config/02-ont-human-variation-calling/nextflow.config'
+TDREPETS='/NGS/humangenomics/active/2022/run/ont_human_workflow/data_old/demo_data/human_GRCh38_no_alt_analysis_set.trf.bed'
+NFCONFIG='/NGS/humangenomics/active/2022/run/ont_human_workflow/config/03-ont-human-variation-calling/nextflow.config'
 # note: created an overide config to provide modified CPU and Memory values
 # change these values if you want to tweak performance based on resources
 
-# create output directory
-mkdir ${WKDIR}/results/02-ont-human-variation-calling/
+# cleaup old ouputs of this script to avoid writing to file twice
+rm -rf ${WKDIR}/results/03-ont-human-variation-calling/${SAMPLE}/
+
+# create output directory if it doesn't yet exist
+mkdir -p ${WKDIR}/results/03-ont-human-variation-calling/${SAMPLE}/
 
 # set the shell to be used by conda for this script (and re-start shell to implement changes)
 conda init bash
@@ -50,9 +53,9 @@ nextflow run -c ${NFCONFIG} epi2me-labs/wf-human-variation \
 --use_longphase \
 --tr_bed ${TDREPETS} \
 --model ${MODEL} \
---bam ${WKDIR}/results/00-cthulhu-guppy-gpu/bam/${SAMPLE}_sorted_merged.bam \
+--bam ${WKDIR}/results/02-ont-bam-merge/bam/${SAMPLE}_merged_sorted.bam \
 --ref ${REFERENCE} \
---out_dir ${WKDIR}/results/02-ont-human-variation-calling/
+--out_dir ${WKDIR}/results/03-ont-human-variation-calling/${SAMPLE}/
 
 # Notes:
 # This step calls the ONT wf-human-variation nextflow pipeline

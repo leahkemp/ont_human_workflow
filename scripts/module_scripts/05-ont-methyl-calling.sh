@@ -3,7 +3,7 @@
 #SBATCH --mail-type=END,FAIL
 #SBATCH --mail-user=leah.kemp@esr.cri.nz
 #SBATCH --partition prod
-#SBATCH --job-name=04-ont-methyl-calling
+#SBATCH --job-name=05-ont-methyl-calling
 #SBATCH --time=6:00:00
 #SBATCH --ntasks 1
 #SBATCH --cpus-per-task 16
@@ -14,6 +14,9 @@
 WKDIR='/data/basecalled/thalassemia_tmp/'
 SAMPLE='OM1052A'
 REFERENCE='/public-data/references/GRCh38/GCA_000001405.15_GRCh38_no_alt_analysis_set.fna'
+
+# create output directory if it doesn't yet exist
+mkdir -p ${WKDIR}/results/05-ont-methyl-calling/
 
 # set the shell to be used by conda for this script (and re-start shell to implement changes)
 conda init bash

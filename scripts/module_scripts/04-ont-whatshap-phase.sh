@@ -3,7 +3,7 @@
 #SBATCH --mail-type=END,FAIL
 #SBATCH --mail-user=leah.kemp@esr.cri.nz
 #SBATCH --partition prod
-#SBATCH --job-name=03-ont-whatshap-phase
+#SBATCH --job-name=04-ont-whatshap-phase
 #SBATCH --time=24:00:00
 #SBATCH --ntasks 1
 #SBATCH --cpus-per-task 16
@@ -15,6 +15,9 @@ WKDIR='/NGS/humangenomics/active/2022/run/ont_human_workflow/'
 SAMPLE='proband'
 REFERENCE='/public-data/references/GRCh38/GCA_000001405.15_GRCh38_no_alt_analysis_set.fna'
 OUTPUT='results'
+
+# create output directory if it doesn't yet exist
+mkdir -p ${WKDIR}/results/03-ont-whatshap-phase/
 
 # set the shell to be used by conda for this script (and re-start shell to implement changes)
 conda init bash

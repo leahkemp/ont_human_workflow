@@ -17,7 +17,7 @@ SAMPLE="OM1052A"
 # cleaup old ouputs of this script to avoid writing to file twice
 rm -rf ${WKDIR}/results/02-ont-bam-merge/bam/${SAMPLE}*
 
-# make bam dir
+# create output directory if it doesn't yet exist
 mkdir -p ${WKDIR}/results/02-ont-bam-merge/bam/
 
 # create list of bam files to merge

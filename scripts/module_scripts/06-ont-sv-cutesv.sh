@@ -3,7 +3,7 @@
 #SBATCH --mail-type=END,FAIL
 #SBATCH --mail-user=leah.kemp@esr.cri.nz
 #SBATCH --partition prod
-#SBATCH --job-name=05-ont-sv-cutesv
+#SBATCH --job-name=06-ont-sv-cutesv
 #SBATCH --time=6:00:00
 #SBATCH --ntasks 1
 #SBATCH --cpus-per-task 16
@@ -15,6 +15,9 @@ WKDIR='/NGS/humangenomics/active/2022/run/ont_human_workflow/'
 SAMPLE='OM1052A'
 REFERENCE='/NGS/clinicalgenomics/public_data/ncbi/GRCh38/GCA_000001405.15_GRCh38_no_alt_analysis_set.fasta.gz'
 OUTPUT='/NGS/humangenomics/active/2022/run/ont_human_workflow/results/05-ont-sv-cutesv/'
+
+# create output directory if it doesn't yet exist
+mkdir -p ${WKDIR}/results/05-ont-sv-cutesv/
 
 # set the shell to be used by conda for this script (and re-start shell to implement changes)
 conda init bash

@@ -6,3 +6,7 @@ data_old/
 logs/slurm*
 
 results/0*
+
+.nextflow*
+
+work/
