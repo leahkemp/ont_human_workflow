@@ -1,7 +1,7 @@
 # 01 - Setup
 
 Created: 2022/12/12 12:51:38
-Last modified: 2022/12/12 13:16:28
+Last modified: 2022/12/13 12:58:38
 
 - **Aim:** This document outlines the setup for running the "pipeline" module scripts
 - **Prerequisite software:**
@@ -20,9 +20,10 @@ Last modified: 2022/12/12 13:16:28
 
 Get or ensure you have the appropriate software dependencies, what we need:
 
-- [git](https://git-scm.com/) (validated to work with v1.8.3.1)
-- [conda](https://docs.conda.io/en/latest/) (validated to work with v4.13.0) - can be installed to a users account
-- [mamba](https://mamba.readthedocs.io/en/latest/index.html) (validated to work with v0.24.0) - can be installed to a users account
+- [git](https://git-scm.com/) (validated to work with v1.8.3.1) - should be readily available on the ESR production network
+- [guppy]() (validated to work with v6.4.2) - should be readily available on the ESR production network
+- [conda](https://docs.conda.io/en/latest/) (validated to work with v4.13.0) - can be installed to a users account on the ESR production network
+- [mamba](https://mamba.readthedocs.io/en/latest/index.html) (validated to work with v0.24.0) - can be installed to a users account on the ESR production network
 - [GNU coreutils](https://www.gnu.org/software/coreutils/) (validated to work with v8.22) - should be readily available on the ESR production network
 
 How to check if git is installed and available:
@@ -35,6 +36,25 @@ git --version
 
 ```bash
 git version 1.8.3.1
+```
+
+</details>
+<br/>
+
+How to check if guppy is installed and available:
+
+```bash
+/opt/admin/dsc/guppy-gpu/6.4.2/ont-guppy/bin/guppy_basecaller --version
+```
+
+<details><summary markdown="span">Example output indicating the software is installed and available (click to expand)</summary>
+
+```bash
+: Guppy Basecalling Software, (C) Oxford Nanopore Technologies plc. Version 6.4.2+97a7f06, minimap2 version 2.24-r1122
+
+Use of this software is permitted solely under the terms of the end user license agreement (EULA).
+By running, copying or accessing this software, you are demonstrating your acceptance of the EULA.
+The EULA may be found in /opt/admin/dsc/guppy-gpu/6.4.2/ont-guppy/bin
 ```
 
 </details>
@@ -80,7 +100,35 @@ Written by Mike Parker, David MacKenzie, and Jim Meyering.
 
 ## Clone the project repository
 
+The "pipeline" we're running is held in the github repository at https://github.com/leahkemp/ont_human_workflow. We need to clone this repository to get all the code to run the "pipeline". This only needs to be done once.
+
+Navigate to the working directory, if running on ESR's production network, I'd suggest using the dedicated analysis space for human genomics, for example:
+
+```bash
+cd /NGS/humangenomics/active/2022/run/
+```
+
+Clone the github repository
+
+```bash
+git clone https://github.com/leahkemp/ont_human_workflow.git
+```
+
 ## Configure all user configurable parameters
+
+We need to configure some variables in each of the "pipeline" module scripts at [./scripts/module_scripts/](./scripts/module_scripts/).
+
+Each bash module script has modifiable SLURM parameters. All are configured appropriately for the ESR production network. The only variable that should need configuring is the email address to which emails indicating completion or failure of scripts can be sent.
+
+```bash
+#SBATCH --mail-user=leah.kemp@esr.cri.nz
+```
+
+Each bash module script also has modifiable bash variables. Again, all are configured appropriately for the ESR production network and the only variable that should need configuring is the sample to be analysed.
+
+```bash
+SAMPLE="OM1052A"
+```
 
 ## Get data
 

@@ -1,7 +1,7 @@
-name: nextflow.22.10.0
+name: cutesv.2.0.2
 channels:
   - conda-forge
   - bioconda
   - defaults
 dependencies:
-  - nextflow=22.10.0
+  - cutesv=2.0.2

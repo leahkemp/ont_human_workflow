@@ -1,7 +1,7 @@
 #!/bin/bash -l
 
-#SBATCH --mail-type=END,FAIL
 #SBATCH --mail-user=leah.kemp@esr.cri.nz
+#SBATCH --mail-type=END,FAIL
 #SBATCH --partition prod
 #SBATCH --job-name=05-ont-methyl-calling
 #SBATCH --time=6:00:00
@@ -11,12 +11,12 @@
 #SBATCH --output="./logs/slurm-%j-%x.out"
 
 # define variables
-WKDIR='/data/basecalled/thalassemia_tmp/'
 SAMPLE='OM1052A'
-REFERENCE='/public-data/references/GRCh38/GCA_000001405.15_GRCh38_no_alt_analysis_set.fna'
+WKDIR='/NGS/humangenomics/active/2022/run/ont_human_workflow/'
+REF="/NGS/clinicalgenomics/public_data/ncbi/GRCh38/GCA_000001405.15_GRCh38_no_alt_analysis_set.fasta.gz"
 
 # create output directory if it doesn't yet exist
-mkdir -p ${WKDIR}/results/05-ont-methyl-calling/
+mkdir -p ${WKDIR}/results/05-ont-methyl-calling/${SAMPLE}/bed/
 
 # set the shell to be used by conda for this script (and re-start shell to implement changes)
 conda init bash
@@ -31,24 +31,23 @@ mamba env create \
 conda activate modbam2bed.0.6.3
 
 # move to working dir
-cd ${WKDIR}/${SAMPLE}
-mkdir bed
+cd ${WKDIR}/results/05-ont-methyl-calling/${SAMPLE}/
 
 # create methylation bed files
 for HP in 1 2; do
     modbam2bed \
         -e -m 5mC --cpg -t 16 --haplotype ${HP} \
-        ${REFERENCE} \
-        ./bam/${SAMPLE}_sorted_merged.hp.bam \
-        | bgzip -c > ./bed/${SAMPLE}_methylation.hp${HP}.cpg.bed.gz
+        ${REF} \
+        ${WKDIR}/results/03-ont-whatshap-phase/${SAMPLE}/${SAMPLE}_sorted_merged.hp.bam \
+        | bgzip -c > ${WKDIR}/results/05-ont-methyl-calling/${SAMPLE}/bed/${SAMPLE}_methylation.hp${HP}.cpg.bed.gz
 done;
 
 # create an aggregated bed file
 modbam2bed \
   -e -m 5mC --cpg --aggregate -t 16 \
-  ${REFERENCE} \
-  ./bam/${SAMPLE}_sorted_merged.hp.bam \
-  | bgzip -c > ./bed/${SAMPLE}_methylation.aggregated.cpg.bed.gz
+  ${REF} \
+  ${WKDIR}/results/03-ont-whatshap-phase/${SAMPLE}/${SAMPLE}_sorted_merged.hp.bam \
+  | bgzip -c > ${WKDIR}/results/05-ont-methyl-calling/${SAMPLE}/bed/${SAMPLE}_methylation.aggregated.cpg.bed.gz
 
 # Notes:
 # this step extracts the methylation information from the bam file, generating
@@ -59,3 +58,6 @@ modbam2bed \
 # per strand, so some processing will be required to 'collapse' the data to a
 # single CpG site, but this type of work is usually performed in the downstream\
 # analysis, using packages such as methylkit.
+
+# move back into otiginal working directory
+cd ${WKDIR}

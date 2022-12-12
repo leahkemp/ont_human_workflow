@@ -1,0 +1,7 @@
+name: nextflow.22.10.1
+channels:
+  - conda-forge
+  - bioconda
+  - defaults
+dependencies:
+  - nextflow=22.10.1
