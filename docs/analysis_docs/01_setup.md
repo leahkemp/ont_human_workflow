@@ -1,7 +1,7 @@
 # 01 - Setup
 
 Created: 2022/12/12 12:51:38
-Last modified: 2022/12/13 13:10:14
+Last modified: 2022/12/13 13:12:20
 
 - **Aim:** This document outlines the setup for running the "pipeline" module scripts
 - **Prerequisite software:**
@@ -20,12 +20,14 @@ Last modified: 2022/12/13 13:10:14
 
 Get or ensure you have the appropriate software dependencies, what we need:
 
-- [git](https://git-scm.com/) (validated to work with v1.8.3.1) - should be readily available on the ESR production network
-- [guppy]() (validated to work with v6.4.2) - should be readily available on the ESR production network
-- [conda](https://docs.conda.io/en/latest/) (validated to work with v4.13.0) - can be installed to a users account on the ESR production network
-- [mamba](https://mamba.readthedocs.io/en/latest/index.html) (validated to work with v0.24.0) - can be installed to a users account on the ESR production network
-- [GNU coreutils](https://www.gnu.org/software/coreutils/) (validated to work with v8.22) - should be readily available on the ESR production network
-- [rsync](https://rsync.samba.org/) (validated to work with v3.1.2) - should be readily available on the ESR production network
+- [git](https://git-scm.com/) (validated to work with v1.8.3.1)
+- [guppy]() (validated to work with v6.4.2)
+- [conda](https://docs.conda.io/en/latest/) (validated to work with v4.13.0)
+- [mamba](https://mamba.readthedocs.io/en/latest/index.html) (validated to work with v0.24.0)
+- [GNU coreutils](https://www.gnu.org/software/coreutils/) (validated to work with v8.22)
+- [rsync](https://rsync.samba.org/) (validated to work with v3.1.2)
+
+*All this software should be readily available on the ESR production network, except for conda and mamba which can be installed to a users accout*
 
 How to check if git is installed and available:
 
