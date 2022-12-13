@@ -1,7 +1,7 @@
 # 02 - Run module scripts
 
 Created: 2022/12/12 12:51:47
-Last modified: 2022/12/12 14:29:24
+Last modified: 2022/12/13 13:08:09
 
 - **Aim:** This document outlines the process for running the "pipeline" module scripts
 - **Prerequisite software:**
@@ -15,7 +15,7 @@ Last modified: 2022/12/12 14:29:24
 
 ### Run module scripts
 
-Navigate to your working directory, for example the dedicated space for running human genomics analyses on production
+Navigate to your working directory
 
 ```bash
 cd /NGS/humangenomics/active/2022/run/ont_human_workflow/

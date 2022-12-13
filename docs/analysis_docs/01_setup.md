@@ -1,7 +1,7 @@
 # 01 - Setup
 
 Created: 2022/12/12 12:51:38
-Last modified: 2022/12/13 12:58:38
+Last modified: 2022/12/13 13:10:14
 
 - **Aim:** This document outlines the setup for running the "pipeline" module scripts
 - **Prerequisite software:**
@@ -25,6 +25,7 @@ Get or ensure you have the appropriate software dependencies, what we need:
 - [conda](https://docs.conda.io/en/latest/) (validated to work with v4.13.0) - can be installed to a users account on the ESR production network
 - [mamba](https://mamba.readthedocs.io/en/latest/index.html) (validated to work with v0.24.0) - can be installed to a users account on the ESR production network
 - [GNU coreutils](https://www.gnu.org/software/coreutils/) (validated to work with v8.22) - should be readily available on the ESR production network
+- [rsync](https://rsync.samba.org/) (validated to work with v3.1.2) - should be readily available on the ESR production network
 
 How to check if git is installed and available:
 
@@ -93,6 +94,31 @@ This is free software: you are free to change and redistribute it.
 There is NO WARRANTY, to the extent permitted by law.
 
 Written by Mike Parker, David MacKenzie, and Jim Meyering.
+```
+
+</details>
+<br/>
+
+How to check if rsync is installed and available:
+
+```bash
+rsync --version
+```
+
+<details><summary markdown="span">Example output indicating the software is installed and available (click to expand)</summary>
+
+```bash
+rsync  version 3.1.2  protocol version 31
+Copyright (C) 1996-2015 by Andrew Tridgell, Wayne Davison, and others.
+Web site: http://rsync.samba.org/
+Capabilities:
+    64-bit files, 64-bit inums, 64-bit timestamps, 64-bit long ints,
+    socketpairs, hardlinks, symlinks, IPv6, batchfiles, inplace,
+    append, ACLs, xattrs, iconv, symtimes, prealloc
+
+rsync comes with ABSOLUTELY NO WARRANTY.  This is free software, and you
+are welcome to redistribute it under certain conditions.  See the GNU
+General Public Licence for details.
 ```
 
 </details>
