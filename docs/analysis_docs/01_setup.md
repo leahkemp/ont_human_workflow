@@ -1,7 +1,7 @@
 # 01 - Setup
 
 Created: 2022/12/12 12:51:38
-Last modified: 2022/12/13 13:34:24
+Last modified: 2022/12/13 13:35:09
 
 - **Aim:** This document outlines the setup for running the "pipeline" module scripts
 - **Prerequisite software:**
@@ -126,6 +126,21 @@ Capabilities:
 rsync comes with ABSOLUTELY NO WARRANTY.  This is free software, and you
 are welcome to redistribute it under certain conditions.  See the GNU
 General Public Licence for details.
+```
+
+</details>
+<br/>
+
+How to check if slurm is installed and available:
+
+```bash
+sbatch --version
+```
+
+<details><summary markdown="span">Example output indicating the software is installed and available (click to expand)</summary>
+
+```bash
+slurm 20.11.6
 ```
 
 </details>
