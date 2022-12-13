@@ -22,7 +22,7 @@ REF="/NGS/clinicalgenomics/public_data/ncbi/GRCh38/GCA_000001405.15_GRCh38_no_al
 mkdir -p ${WKDIR}/results/01-cthulhu-guppy-gpu/${SAMPLE}/
 
 # run Guppy+Remora+Alignment
-"${GUPPYPATH}"./guppy_basecaller \
+"${GUPPYPATH}"/guppy_basecaller \
 -c "${CONFIG}" \
 -a "${REF}" \
 -i "${INPUTDIR}" \
