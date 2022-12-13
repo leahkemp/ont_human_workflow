@@ -1,9 +1,9 @@
 # 02 - Run module scripts
 
 Created: 2022/12/12 12:51:47
-Last modified: 2022/12/13 13:24:07
+Last modified: 2022/12/13 13:36:17
 
-- **Aim:** This document outlines the process for running the "pipeline" module scripts
+- **Aim:** This document outlines the process for running the "pipeline" module scripts on ESR's production network
 - **Prerequisite software:**
 - **OS:** ORAC (CentOS Linux) (ESR production network)
 

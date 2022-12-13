@@ -1,9 +1,9 @@
 # 01 - Setup
 
 Created: 2022/12/12 12:51:38
-Last modified: 2022/12/13 13:35:09
+Last modified: 2022/12/13 13:36:16
 
-- **Aim:** This document outlines the setup for running the "pipeline" module scripts
+- **Aim:** This document outlines the setup for running the "pipeline" module scripts on ESR's production network
 - **Prerequisite software:**
 - **OS:** ORAC (CentOS Linux) (ESR production network)
 
