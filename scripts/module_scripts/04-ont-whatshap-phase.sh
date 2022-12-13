@@ -5,7 +5,7 @@
 #SBATCH --partition prod
 #SBATCH --job-name=04-ont-whatshap-phase
 #SBATCH --time=24:00:00
-#SBATCH --ntasks 1
+#SBATCH --ntasks 8
 #SBATCH --cpus-per-task 16
 #SBATCH --mem 64G
 #SBATCH --output="./logs/slurm-%j-%x.out"
@@ -32,9 +32,6 @@ mamba env create \
 
 # activate whatshap conda environment
 conda activate whatshap.1.7
-
-# move to working dir
-cd ${WKDIR}/results/03-ont-whatshap-phase/${SAMPLE}/
 
 # whatshap phase tagging of bam output
 whatshap haplotag \
@@ -63,6 +60,3 @@ samtools index \
 # haplotype. At this stage the bam is able to loaded into a genome 
 # viewer/browser and contains aligned reads, with base modification
 # (methylation) information, as well as the haplotype information.
-
-# move back into otiginal working directory
-cd ${WKDIR}

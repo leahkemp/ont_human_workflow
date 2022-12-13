@@ -11,11 +11,11 @@
 #SBATCH --output="./logs/slurm-%j-%x.out"
 
 # define variables
-SAMPLE='OM1052A'
+SAMPLE='demo'
 WKDIR='/NGS/humangenomics/active/2022/run/ont_human_workflow/'
-MODEL='/NGS/clinicalgenomics/public_data/clair3_models/ont_guppy5/'
+MODEL='dna_r10.4.1_e8.2_400bps_hac@v3.5.2'
 REF="/NGS/clinicalgenomics/public_data/ncbi/GRCh38/GCA_000001405.15_GRCh38_no_alt_analysis_set.fasta.gz"
-TDREPETS='/NGS/humangenomics/active/2022/run/ont_human_workflow/data_old/demo_data/human_GRCh38_no_alt_analysis_set.trf.bed'
+TDREPETS='/NGS/humangenomics/active/2022/run/ont_human_workflow/demo_data_new/demo_data/human_GRCh38_no_alt_analysis_set.trf.bed'
 NFCONFIG='/NGS/humangenomics/active/2022/run/ont_human_workflow/config/03-ont-human-variation-calling/nextflow.config'
 # note: created an overide config to provide modified CPU and Memory values
 # change these values if you want to tweak performance based on resources
@@ -24,7 +24,7 @@ NFCONFIG='/NGS/humangenomics/active/2022/run/ont_human_workflow/config/03-ont-hu
 rm -rf ${WKDIR}/results/03-ont-human-variation-calling/${SAMPLE}/
 
 # create output directory if it doesn't yet exist
-mkdir -p ${WKDIR}/results/03-ont-human-variation-calling/${SAMPLE}/
+mkdir -p ${WKDIR}/results/03-ont-human-variation-calling/${SAMPLE}/work/
 
 # set the shell to be used by conda for this script (and re-start shell to implement changes)
 conda init bash
@@ -38,12 +38,10 @@ mamba env create \
 # activate nextflow conda environment
 conda activate nextflow.22.10.1
 
-# move into working directory to run pipeline
-cd ${WKDIR}/results/03-ont-human-variation-calling/${SAMPLE}/
-
 # run Clair3 variant calling and sniffles2
 nextflow run epi2me-labs/wf-human-variation \
 -r v1.0.0 \
+-w ${WKDIR}/results/03-ont-human-variation-calling/${SAMPLE}/work/ \
 -profile singularity \
 -with-report \
 -with-timeline \
@@ -55,7 +53,7 @@ nextflow run epi2me-labs/wf-human-variation \
 --phase_vcf \
 --use_longphase \
 --tr_bed ${TDREPETS} \
---model ${MODEL} \
+--basecaller_cfg ${MODEL} \
 --bam ${WKDIR}/results/02-ont-bam-merge/${SAMPLE}/${SAMPLE}_merged_sorted.bam \
 --ref ${REF} \
 --sample_name ${SAMPLE} \
@@ -66,6 +64,3 @@ nextflow run epi2me-labs/wf-human-variation \
 # (https://github.com/epi2me-labs/wf-human-variation), which performs variant calling (clair3),
 # phase marking, and structural variant calling using sniffles2 (sniffles2 was a seperate step
 # previously). 
-
-# move back into otiginal working directory
-cd ${WKDIR}
