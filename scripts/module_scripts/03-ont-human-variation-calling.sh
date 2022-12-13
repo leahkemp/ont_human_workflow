@@ -11,7 +11,7 @@
 #SBATCH --output="./logs/slurm-%j-%x.out"
 
 # define variables
-SAMPLE='demo'
+SAMPLE='OM1052A'
 WKDIR='/NGS/humangenomics/active/2022/run/ont_human_workflow/'
 MODEL='dna_r10.4.1_e8.2_400bps_hac@v3.5.2'
 REF="/NGS/clinicalgenomics/public_data/ncbi/GRCh38/GCA_000001405.15_GRCh38_no_alt_analysis_set.fasta.gz"
@@ -25,6 +25,7 @@ rm -rf ${WKDIR}/results/03-ont-human-variation-calling/${SAMPLE}/
 
 # create output directory if it doesn't yet exist
 mkdir -p ${WKDIR}/results/03-ont-human-variation-calling/${SAMPLE}/work/
+mkdir -p ${WKDIR}/results/03-ont-human-variation-calling/${SAMPLE}/
 
 # set the shell to be used by conda for this script (and re-start shell to implement changes)
 conda init bash
