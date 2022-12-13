@@ -1,7 +1,7 @@
 # 01 - Setup
 
 Created: 2022/12/12 12:51:38
-Last modified: 2022/12/13 13:33:59
+Last modified: 2022/12/13 13:34:24
 
 - **Aim:** This document outlines the setup for running the "pipeline" module scripts
 - **Prerequisite software:**
@@ -28,7 +28,11 @@ Get or ensure you have the appropriate software dependencies, what we need:
 - [rsync](https://rsync.samba.org/) (validated to work with v3.1.2)
 - [slurm](https://slurm.schedmd.com/overview.html) (validated to work with v20.11.6)
 
+----
+
 **All this software should be readily available on the ESR production network, except for conda and mamba which can be installed to a users accout**
+
+----
 
 How to check if git is installed and available:
 
