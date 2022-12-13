@@ -1,12 +1,6 @@
 
-data/
-
-data_old/
+fast5/
 
 logs/slurm*
 
 results/0*
-
-.nextflow*
-
-work/

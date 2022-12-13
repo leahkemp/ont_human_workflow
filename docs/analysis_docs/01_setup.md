@@ -1,7 +1,7 @@
 # 01 - Setup
 
 Created: 2022/12/12 12:51:38
-Last modified: 2022/12/13 13:16:24
+Last modified: 2022/12/13 13:29:59
 
 - **Aim:** This document outlines the setup for running the "pipeline" module scripts
 - **Prerequisite software:**
@@ -152,20 +152,36 @@ Each bash module script has modifiable SLURM parameters. All are configured appr
 #SBATCH --mail-user=leah.kemp@esr.cri.nz
 ```
 
-Each bash module script also has modifiable bash variables. Again, all are configured appropriately for the ESR production network and the only variable that should need configuring is the sample to be analysed.
+Each bash module script also has modifiable bash variables. Again, all are configured appropriately for the ESR production network and the only variables that should need configuring is the sample to be analysed and the location of the input fast5 files.
 
 ```bash
 SAMPLE="OM1052A"
+INPUTDIR="/NGS/humangenomics/active/2022/run/ont_human_workflow/fast5/OM1052A/"
 ```
 
 ## Get data
 
-We want the raw fast5 pass files from all sequencing runs for a given sample in a single directory
+We want the raw fast5 pass files from all sequencing runs for a given sample in a single directory. The data is stored/backed up at `/NGS/clinicalgenomics/archive/2022/run/raw/adipose_ont_methylation/`.
+
+Make a copy of the data in your working directory, for example, the "OM1052A" sample has data from three sequencing runs:
+
+```bash
+# create directory in our working directory to put all data
+mkdir -p /NGS/humangenomics/active/2022/run/ont_human_workflow/fast5/OM1052A/
+
+# copy all pass fast5 data from all sequencing runs into this directory in our working directory
+rsync -av /NGS/clinicalgenomics/archive/2022/run/raw/adipose_ont_methylation/data/Adipose_AS_ours/OM1052A/run1/20221114_0429_X5_FAQ91514_d446fbce/fast5_pass/* \
+/NGS/humangenomics/active/2022/run/ont_human_workflow/fast5/OM1052A/
+rsync -av /NGS/clinicalgenomics/archive/2022/run/raw/adipose_ont_methylation/data/Adipose_AS_ours/OM1052A/run2/20221122_0500_X4_FAQ90706_7bf313c3/fast5_pass/* \
+/NGS/humangenomics/active/2022/run/ont_human_workflow/fast5/OM1052A/
+rsync -av /NGS/clinicalgenomics/archive/2022/run/raw/adipose_ont_methylation/data/Adipose_AS_ours/OM1052A/run3/20221122_2113_X4_FAQ90706_09b178bc/fast5_pass/* \
+/NGS/humangenomics/active/2022/run/ont_human_workflow/fast5/OM1052A/
+```
 
 <details><summary markdown="span">Partial example raw fast5 files for a single sample (click to expand)</summary>
 
 ```bash
-/NGS/humangenomics/active/2022/run/ont_human_workflow/data/fast5
+/NGS/humangenomics/active/2022/run/ont_human_workflow/fast5/OM1052A
 ├── [ 56M]  FAQ90706_pass_09b178bc_3605de32_0.fast5
 ├── [ 55M]  FAQ90706_pass_09b178bc_3605de32_1.fast5
 ├── [ 57M]  FAQ90706_pass_09b178bc_3605de32_2.fast5
@@ -185,34 +201,6 @@ We want the raw fast5 pass files from all sequencing runs for a given sample in 
 ├── [ 57M]  FAQ90706_pass_09b178bc_3605de32_16.fast5
 ├── [ 58M]  FAQ90706_pass_09b178bc_3605de32_17.fast5
 ├── [ 57M]  FAQ90706_pass_09b178bc_3605de32_18.fast5
-├── [ 58M]  FAQ90706_pass_09b178bc_3605de32_19.fast5
-├── [ 56M]  FAQ90706_pass_09b178bc_3605de32_20.fast5
-├── [ 58M]  FAQ90706_pass_09b178bc_3605de32_21.fast5
-├── [ 57M]  FAQ90706_pass_09b178bc_3605de32_22.fast5
-├── [ 76M]  FAQ90706_pass_09b178bc_3605de32_23.fast5
-├── [ 84M]  FAQ90706_pass_09b178bc_3605de32_24.fast5
-├── [ 57M]  FAQ90706_pass_09b178bc_3605de32_25.fast5
-├── [ 56M]  FAQ90706_pass_09b178bc_3605de32_26.fast5
-├── [ 56M]  FAQ90706_pass_09b178bc_3605de32_27.fast5
-├── [ 58M]  FAQ90706_pass_09b178bc_3605de32_28.fast5
-├── [ 56M]  FAQ90706_pass_09b178bc_3605de32_29.fast5
-├── [ 61M]  FAQ90706_pass_09b178bc_3605de32_30.fast5
-├── [ 56M]  FAQ90706_pass_09b178bc_3605de32_31.fast5
-├── [ 56M]  FAQ90706_pass_09b178bc_3605de32_32.fast5
-├── [ 59M]  FAQ90706_pass_09b178bc_3605de32_33.fast5
-├── [ 58M]  FAQ90706_pass_09b178bc_3605de32_34.fast5
-├── [ 56M]  FAQ90706_pass_09b178bc_3605de32_35.fast5
-├── [ 58M]  FAQ90706_pass_09b178bc_3605de32_36.fast5
-├── [ 58M]  FAQ90706_pass_09b178bc_3605de32_37.fast5
-├── [ 59M]  FAQ90706_pass_09b178bc_3605de32_38.fast5
-├── [ 55M]  FAQ90706_pass_09b178bc_3605de32_39.fast5
-├── [ 54M]  FAQ90706_pass_09b178bc_3605de32_40.fast5
-├── [ 58M]  FAQ90706_pass_09b178bc_3605de32_41.fast5
-├── [ 58M]  FAQ90706_pass_09b178bc_3605de32_42.fast5
-├── [105M]  FAQ90706_pass_09b178bc_3605de32_43.fast5
-├── [ 57M]  FAQ90706_pass_09b178bc_3605de32_44.fast5
-├── [ 54M]  FAQ90706_pass_09b178bc_3605de32_45.fast5
-├── [ 57M]  FAQ90706_pass_09b178bc_3605de32_46.fast5
 .
 .
 .
