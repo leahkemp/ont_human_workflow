@@ -18,6 +18,9 @@ GUPPYPATH="/opt/admin/dsc/guppy-gpu/6.4.2/ont-guppy/bin/"
 CONFIG="dna_r10.4.1_e8.2_400bps_modbases_5mc_cg_sup_prom.cfg"
 REF="/NGS/clinicalgenomics/public_data/ncbi/GRCh38/GCA_000001405.15_GRCh38_no_alt_analysis_set.fasta.gz"
 
+# cleaup old ouputs of this script to avoid writing to file twice
+rm -rf ${WKDIR}/results/01-cthulhu-guppy-gpu/${SAMPLE}/
+
 # create output directory if it doesn't yet exist
 mkdir -p ${WKDIR}/results/01-cthulhu-guppy-gpu/${SAMPLE}/
 
