@@ -1,7 +1,7 @@
 # 01 - Setup
 
 Created: 2022/12/12 12:51:38
-Last modified: 2022/12/13 13:12:20
+Last modified: 2022/12/13 13:16:24
 
 - **Aim:** This document outlines the setup for running the "pipeline" module scripts
 - **Prerequisite software:**
@@ -79,7 +79,7 @@ conda 4.13.0
 </details>
 <br/>
 
-If not installed, see the installation instructions for [mamba]() and [conda]()
+If not installed, see the installation instructions for [conda](https://conda.io/projects/conda/en/latest/user-guide/install/linux.html#installing-on-linux) and [mamba](https://mamba.readthedocs.io/en/latest/installation.html)
 
 How to check if GNU coreutils is installed and available:
 
