@@ -1,7 +1,7 @@
 # 01 - Setup
 
 Created: 2022/12/12 12:51:38
-Last modified: 2022/12/13 13:29:59
+Last modified: 2022/12/13 13:30:50
 
 - **Aim:** This document outlines the setup for running the "pipeline" module scripts
 - **Prerequisite software:**
@@ -161,7 +161,7 @@ INPUTDIR="/NGS/humangenomics/active/2022/run/ont_human_workflow/fast5/OM1052A/"
 
 ## Get data
 
-We want the raw fast5 pass files from all sequencing runs for a given sample in a single directory. The data is stored/backed up at `/NGS/clinicalgenomics/archive/2022/run/raw/adipose_ont_methylation/`.
+We want the raw fast5 pass files from all sequencing runs for a given sample in a single directory. The data is stored/backed up at `/NGS/clinicalgenomics/archive/2022/run/raw/adipose_ont_methylation/` on ESR's production network.
 
 Make a copy of the data in your working directory, for example, the "OM1052A" sample has data from three sequencing runs:
 
