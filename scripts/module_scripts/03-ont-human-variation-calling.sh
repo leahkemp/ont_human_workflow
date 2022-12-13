@@ -6,7 +6,7 @@
 #SBATCH --job-name=03-ont-human-variation-calling
 #SBATCH --time=24:00:00
 #SBATCH --ntasks 1
-#SBATCH --cpus-per-task 48
+#SBATCH --cpus-per-task 24
 #SBATCH --mem 130G
 #SBATCH --output="./logs/slurm-%j-%x.out"
 
@@ -40,7 +40,7 @@ mamba env create \
 conda activate nextflow.22.10.1
 
 # run Clair3 variant calling and sniffles2
-nextflow run epi2me-labs/wf-human-variation \
+nextflow run -c ${NFCONFIG} epi2me-labs/wf-human-variation \
 -r v1.0.0 \
 -w ${WKDIR}/results/03-ont-human-variation-calling/${SAMPLE}/work/ \
 -profile singularity \
