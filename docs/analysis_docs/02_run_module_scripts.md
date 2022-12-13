@@ -1,7 +1,7 @@
 # 02 - Run module scripts
 
 Created: 2022/12/12 12:51:47
-Last modified: 2022/12/13 13:36:17
+Last modified: 2022/12/13 13:37:05
 
 - **Aim:** This document outlines the process for running the "pipeline" module scripts on ESR's production network
 - **Prerequisite software:**
@@ -11,9 +11,9 @@ Last modified: 2022/12/13 13:36:17
 
 - [02 - Run module scripts](#02---run-module-scripts)
   - [Table of contents](#table-of-contents)
-    - [Run module scripts](#run-module-scripts)
+  - [Run module scripts](#run-module-scripts)
 
-### Run module scripts
+## Run module scripts
 
 Navigate to your working directory
 
