@@ -28,6 +28,8 @@ mkdir -p ${WKDIR}/results/01-cthulhu-guppy-gpu/${SAMPLE}/
 -i "${INPUTDIR}" \
 -s "${WKDIR}/results/01-cthulhu-guppy-gpu/${SAMPLE}/" \
 --chunks_per_runner 412 \
+--num_alignment_threads 16 \
+--num_base_mod_threads 16 \
 --recursive \
 --device "cuda:0,1" \
 --bam_out \
