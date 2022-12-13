@@ -4,6 +4,6 @@ Here we are implementing a generic workflow for processing ONT sequencing data b
 
 ---
 
-To get started analysing data with this "pipeline" on ESR's production network, see [./docs/analysis_docs/](./docs/analysis_docs/).
+To get started analysing data with this "pipeline" on ESR's production network, see [./docs/analysis_docs/](./docs/analysis_docs/). Running this analysis on other compute infrastructures is not supported by the code/documentation in this repository, but is certainly possible and achievable with some bioinformatics knowledge.
 
 ---
