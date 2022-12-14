@@ -29,7 +29,6 @@ mkdir -p ${WKDIR}/results/01-cthulhu-guppy-gpu/${SAMPLE}/
 "${GUPPYPATH}"/guppy_basecaller \
 --flowcell "${FLOWCELL}" \
 --kit "${KIT}" \
---model ${MODEL} \
 -a "${REF}" \
 -i "${INPUTDIR}" \
 -s "${WKDIR}/results/01-cthulhu-guppy-gpu/${SAMPLE}/" \
