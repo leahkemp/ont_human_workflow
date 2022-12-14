@@ -1,7 +1,7 @@
 # 01 - Setup
 
 Created: 2022/12/12 12:51:38
-Last modified: 2022/12/14 13:08:18
+Last modified: 2022/12/14 16:22:16
 
 - **Aim:** This document outlines the setup for running the "pipeline" module scripts on ESR's production network
 - **OS:** ORAC (CentOS Linux) (ESR production network)
@@ -29,7 +29,7 @@ Get or ensure you have the appropriate software dependencies, what we need:
 
 ----
 
-**All this software should be readily available on the ESR production network, except for conda and mamba which can be installed to a users accout**
+**All this software should be readily available on the ESR production network, except for conda and mamba which can be installed to a users account**
 
 ----
 
