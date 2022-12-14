@@ -16,7 +16,7 @@ WKDIR="/NGS/humangenomics/active/2022/run/ont_human_workflow/"
 REF="/NGS/clinicalgenomics/public_data/ncbi/GRCh38/GCA_000001405.15_GRCh38_no_alt_analysis_set.fasta.gz"
 
 # create output directory if it doesn't yet exist
-mkdir -p ${WKDIR}/results/05-ont-methyl-calling/${SAMPLE}/bed/
+mkdir -p "${WKDIR}"/results/05-ont-methyl-calling/"${SAMPLE}"/bed/
 
 # set the shell to be used by conda for this script (and re-start shell to implement changes)
 conda init bash
@@ -25,32 +25,32 @@ source ~/.bashrc
 # create conda environment with modbam2bed installed and activate it
 mamba env create \
 --force \
--f ${WKDIR}/scripts/envs/conda.modbam2bed.0.6.3.yml
+-f "${WKDIR}"/scripts/envs/conda.modbam2bed.0.6.3.yml
 
 # activate modbam2bed conda environment
 conda activate modbam2bed.0.6.3
 
 # move to working dir
-cd ${WKDIR}/results/05-ont-methyl-calling/${SAMPLE}/
+cd "${WKDIR}"/results/05-ont-methyl-calling/"${SAMPLE}"/
 
 # create methylation bed files
 for HP in 1 2; do
     modbam2bed \
-        -e -m 5mC --cpg -t 16 --haplotype ${HP} \
-        ${REF} \
-        ${WKDIR}/results/04-ont-whatshap-phase/${SAMPLE}/${SAMPLE}_sorted_merged.hp.bam \
-        | bgzip -c > ${WKDIR}/results/05-ont-methyl-calling/${SAMPLE}/bed/${SAMPLE}_methylation.hp${HP}.cpg.bed.gz
+        -e -m 5mC --cpg -t 16 --haplotype "${HP}" \
+        "${REF}" \
+        "${WKDIR}"/results/04-ont-whatshap-phase/"${SAMPLE}"/"${SAMPLE}"_sorted_merged.hp.bam \
+        | bgzip -c > "${WKDIR}"/results/05-ont-methyl-calling/"${SAMPLE}"/bed/"${SAMPLE}"_methylation.hp"${HP}".cpg.bed.gz
 done;
 
 # create an aggregated bed file
 modbam2bed \
   -e -m 5mC --cpg --aggregate -t 16 \
-  ${REF} \
-  ${WKDIR}/results/04-ont-whatshap-phase/${SAMPLE}/${SAMPLE}_sorted_merged.hp.bam \
-  | bgzip -c > ${WKDIR}/results/05-ont-methyl-calling/${SAMPLE}/bed/${SAMPLE}_methylation.aggregated.cpg.bed.gz
+  "${REF}" \
+  "${WKDIR}"/results/04-ont-whatshap-phase/"${SAMPLE}"/"${SAMPLE}"_sorted_merged.hp.bam \
+  | bgzip -c > "${WKDIR}"/results/05-ont-methyl-calling/"${SAMPLE}"/bed/"${SAMPLE}"_methylation.aggregated.cpg.bed.gz
 
 # move back into otiginal working directory
-cd ${WKDIR}
+cd "${WKDIR}"
 
 # Notes:
 # this step extracts the methylation information from the bam file, generating

@@ -16,7 +16,7 @@ WKDIR="/NGS/humangenomics/active/2022/run/ont_human_workflow/"
 REF="/NGS/clinicalgenomics/public_data/ncbi/GRCh38/GCA_000001405.15_GRCh38_no_alt_analysis_set.fasta.gz"
 
 # create output directory if it doesn't yet exist
-mkdir -p ${WKDIR}/results/04-ont-whatshap-phase/${SAMPLE}/
+mkdir -p "${WKDIR}"/results/04-ont-whatshap-phase/"${SAMPLE}"/
 
 # set the shell to be used by conda for this script (and re-start shell to implement changes)
 conda init bash
@@ -28,23 +28,23 @@ source ~/.bashrc
 # this issue, but for now conda works.
 mamba env create \
 --force \
--f ${WKDIR}/scripts/envs/conda.whatshap.1.7.yml
+-f "${WKDIR}"/scripts/envs/conda.whatshap.1.7.yml
 
 # activate whatshap conda environment
 conda activate whatshap.1.7
 
 # whatshap phase tagging of bam output
 whatshap haplotag \
-${WKDIR}/results/03-ont-human-variation-calling/${SAMPLE}/${SAMPLE}_all.wf_snp.vcf.gz \
-${WKDIR}/results/02-ont-bam-merge/${SAMPLE}/${SAMPLE}_merged_sorted.bam \
---output ${WKDIR}/results/04-ont-whatshap-phase/${SAMPLE}/${SAMPLE}_sorted_merged.hp.bam  \
---reference ${REF} \
+"${WKDIR}"/results/03-ont-human-variation-calling/"${SAMPLE}"/"${SAMPLE}"_all.wf_snp.vcf.gz \
+"${WKDIR}"/results/02-ont-bam-merge/"${SAMPLE}"/"${SAMPLE}"_merged_sorted.bam \
+--output "${WKDIR}"/results/04-ont-whatshap-phase/"${SAMPLE}"/"${SAMPLE}"_sorted_merged.hp.bam  \
+--reference "${REF}" \
 --ignore-read-groups
 
 # create conda environment with samtools installed
 mamba env create \
 --force \
--f ${WKDIR}/scripts/envs/conda.samtools.1.16.1.yml
+-f "${WKDIR}"/scripts/envs/conda.samtools.1.16.1.yml
 
 # activate samtools conda environment
 conda activate samtools.1.16.1
@@ -52,7 +52,7 @@ conda activate samtools.1.16.1
 # index bam
 samtools index \
 -@ 16 \
-${WKDIR}/results/04-ont-whatshap-phase/${SAMPLE}/${SAMPLE}_sorted_merged.hp.bam
+"${WKDIR}"/results/04-ont-whatshap-phase/"${SAMPLE}"/"${SAMPLE}"_sorted_merged.hp.bam
 
 # Notes:
 # this step phases the data based on the clair3 output and generates a 
