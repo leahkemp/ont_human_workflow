@@ -2,7 +2,7 @@
 
 ## General info
 
-Here we are implementing a generic workflow for processing ONT sequencing data (human). This work is based on the work of Miles Benton and the Singapore - New Zealand Applications Project Support Team, Oxford Nanopore Technologies. Here we are adapting the original scripts to run on ESR's production network, including deploying to slurm. Running this analysis on other compute infrastructures is not supported by the code/documentation in this repository, but is certainly possible and achievable with some bioinformatics knowledge. See the original work this repository is based on in the [./docs/original_work/workflow_outline/](./docs/original_work/workflow_outline/) directory.
+Here we are implementing a generic workflow for processing ONT sequencing data (human). This work is based on a current best practice workflow implemented by [Miles Benton](https://github.com/sirselim) and the Singapore - New Zealand Applications Project Support Team, [Oxford Nanopore Technologies](https://github.com/nanoporetech). Here we are adapting the original scripts to run on ESR's production network, including deploying to slurm. Running this analysis on other compute infrastructures is not supported by the code/documentation in this repository, but is certainly possible and achievable with some bioinformatics knowledge. See the original work this repository is based on in the [./docs/original_work/workflow_outline/](./docs/original_work/workflow_outline/) directory.
 
 ## Workflow overview
 
