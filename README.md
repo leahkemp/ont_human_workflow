@@ -1,12 +1,8 @@
-# README
+# ONT human workflow
 
-Here we are implementing a generic workflow for processing ONT sequencing data based on the work Miles Benton and the Singapore - New Zealand Applications Project Support Team, Oxford Nanopore Technologies put together. This involves adapting the original scripts to run on ESR's production network, including deploying to slurm. See the original work this repository is based on in the [./docs/original_work/workflow_outline/](./docs/original_work/workflow_outline/) directory.
+## General info
 
----
-
-To get started analysing data with this "pipeline" on ESR's production network, see [./docs/analysis_docs/](./docs/analysis_docs/). Running this analysis on other compute infrastructures is not supported by the code/documentation in this repository, but is certainly possible and achievable with some bioinformatics knowledge.
-
----
+Here we are implementing a generic workflow for processing ONT sequencing data (human). This work is based on the work of Miles Benton and the Singapore - New Zealand Applications Project Support Team, Oxford Nanopore Technologies. Here we are adapting the original scripts to run on ESR's production network, including deploying to slurm. Running this analysis on other compute infrastructures is not supported by the code/documentation in this repository, but is certainly possible and achievable with some bioinformatics knowledge. See the original work this repository is based on in the [./docs/original_work/workflow_outline/](./docs/original_work/workflow_outline/) directory.
 
 ## Workflow overview
 
@@ -51,3 +47,18 @@ graph TD;
     dbNSFP-->annotated_vcf.gz;
     annotated_vcf.gz-->SNV_indel_analysis([SNV/indel analysis]);
 ```
+
+## Analysis workflow to run this code on the ESR production network
+
+- [Data transfer and management](https://github.com/leahkemp/ont_human_workflow/blob/main/docs/data_transfer_and_management/data_transfer_and_management.md)
+- [01 - Setup](https://github.com/leahkemp/ont_human_workflow/blob/main/docs/analysis_docs/01_setup.md)
+- [02 - Run module scripts](https://github.com/leahkemp/ont_human_workflow/blob/main/docs/analysis_docs/02_run_module_scripts.md)
+
+## Access
+
+- The github repository for this project is public
+- For other general queries about this project beyond the bioinformatics, contact the current (2022) representatives of the ESR genomics group, Donia Macartney-Coxson (Donia.Macartney-Coxson@esr.cri.nz) and/or Joep de Ligt (joep.deligt@esr.cri.nz)
+
+## Github repository
+
+Find the github repository for this project at: https://github.com/leahkemp/ont_human_workflow
