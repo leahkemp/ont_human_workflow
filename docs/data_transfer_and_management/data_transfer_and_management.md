@@ -1,7 +1,7 @@
 # Data transfer and management
 
 Created: 2022/12/12 12:36:19
-Last modified: 2022/12/14 16:07:40
+Last modified: 2022/12/14 16:10:22
 
 - **Aim:** This document outlines how to transfer data off the in house sequencers, backing up data on the dedicated space on production and organising the data
 - **Prerequisite software:** [rsync](https://rsync.samba.org/)
@@ -82,6 +82,8 @@ rsync -av grid@10.1.30.16:/data/Adipose_AS_ours/* /NGS/clinicalgenomics/archive/
 
 Follow the established directory structure for the bulk of the data (at `/NGS/clinicalgenomics/archive/2022/run/raw/adipose_ont_methylation/data/Adipose_AS_ours/`)
 
+<details><summary markdown="span">Current directory structure (click to expand)</summary>
+
 ```bash
 /NGS/clinicalgenomics/archive/2022/run/raw/adipose_ont_methylation/data/Adipose_AS_ours
 ├── [ 110]  AB1052A
@@ -149,7 +151,12 @@ Follow the established directory structure for the bulk of the data (at `/NGS/cl
 61 directories, 0 files
 ```
 
+</details>
+<br/>
+
 The same directory structure is followed for the RRMS data at `/NGS/clinicalgenomics/archive/2022/run/raw/adipose_ont_methylation/data/Adipose_AS_RRMS/`
+
+<details><summary markdown="span">Current directory structure (click to expand)</summary>
 
 ```bash
 /NGS/clinicalgenomics/archive/2022/run/raw/adipose_ont_methylation/data/Adipose_AS_RRMS/
@@ -170,6 +177,9 @@ The same directory structure is followed for the RRMS data at `/NGS/clinicalgeno
 
 14 directories, 0 files
 ```
+
+</details>
+<br/>
 
 ## Cleanup
 
