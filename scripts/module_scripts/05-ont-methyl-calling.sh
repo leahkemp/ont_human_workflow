@@ -49,6 +49,9 @@ modbam2bed \
   ${WKDIR}/results/03-ont-whatshap-phase/${SAMPLE}/${SAMPLE}_sorted_merged.hp.bam \
   | bgzip -c > ${WKDIR}/results/05-ont-methyl-calling/${SAMPLE}/bed/${SAMPLE}_methylation.aggregated.cpg.bed.gz
 
+# move back into otiginal working directory
+cd ${WKDIR}
+
 # Notes:
 # this step extracts the methylation information from the bam file, generating
 # bed files. There are two processes here, the first creates two bed files, one
@@ -58,6 +61,3 @@ modbam2bed \
 # per strand, so some processing will be required to 'collapse' the data to a
 # single CpG site, but this type of work is usually performed in the downstream\
 # analysis, using packages such as methylkit.
-
-# move back into otiginal working directory
-cd ${WKDIR}

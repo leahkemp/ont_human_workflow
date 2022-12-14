@@ -41,6 +41,9 @@ ${REF} \
 ${WKDIR}/results/06-ont-sv-cutesv/${SAMPLE}/${SAMPLE}_sv_cutesv.vcf \
 ${WKDIR}/results/06-ont-sv-cutesv/${SAMPLE}/cutesv_tmp/
 
+# move back into otiginal working directory
+cd ${WKDIR}
+
 # Notes:
 # this step is for evaluation of another structural variant caller, cuteSV. It's 
 # often nice to have the ability to compare results between various tools. As 
@@ -48,6 +51,3 @@ ${WKDIR}/results/06-ont-sv-cutesv/${SAMPLE}/cutesv_tmp/
 # For other projects it may well be enough to stop after processing step 06.
 # This process outputs a vcf file with the structural variation recorded per
 # line.
-
-# move back into otiginal working directory
-cd ${WKDIR}
