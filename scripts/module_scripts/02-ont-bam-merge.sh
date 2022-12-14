@@ -12,7 +12,7 @@
 
 # define variables
 SAMPLE="OM1052A"
-WKDIR='/NGS/humangenomics/active/2022/run/ont_human_workflow/'
+WKDIR="/NGS/humangenomics/active/2022/run/ont_human_workflow/"
 
 # cleaup old ouputs of this script to avoid writing to file twice
 rm -rf ${WKDIR}/results/02-ont-bam-merge/${SAMPLE}/

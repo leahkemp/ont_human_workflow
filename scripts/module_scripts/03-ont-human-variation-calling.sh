@@ -12,11 +12,11 @@
 
 # define variables
 SAMPLE='OM1052A'
-WKDIR='/NGS/humangenomics/active/2022/run/ont_human_workflow/'
-MODEL='dna_r10.4.1_e8.2_400bps_hac@v3.5.2'
+WKDIR="/NGS/humangenomics/active/2022/run/ont_human_workflow/"
+MODEL="dna_r10.4.1_e8.2_400bps_hac@v3.5.2"
 REF="/NGS/clinicalgenomics/public_data/ncbi/GRCh38/GCA_000001405.15_GRCh38_no_alt_analysis_set.fasta.gz"
-TDREPETS='/NGS/humangenomics/active/2022/run/ont_human_workflow/demo_data_new/demo_data/human_GRCh38_no_alt_analysis_set.trf.bed'
-NFCONFIG='/NGS/humangenomics/active/2022/run/ont_human_workflow/config/03-ont-human-variation-calling/nextflow.config'
+TDREPETS="/NGS/humangenomics/active/2022/run/ont_human_workflow/demo_data_new/demo_data/human_GRCh38_no_alt_analysis_set.trf.bed"
+NFCONFIG="/NGS/humangenomics/active/2022/run/ont_human_workflow/config/03-ont-human-variation-calling/nextflow.config"
 # note: created an overide config to provide modified CPU and Memory values
 # change these values if you want to tweak performance based on resources
 

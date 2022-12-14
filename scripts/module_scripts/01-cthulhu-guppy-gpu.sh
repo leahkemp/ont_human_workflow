@@ -15,7 +15,7 @@ SAMPLE="OM1052A"
 FLOWCELL="FLO-MIN106"
 KIT="SQK-LSK110"
 INPUTDIR="/NGS/humangenomics/active/2022/run/ont_human_workflow/fast5/OM1052A/"
-WKDIR='/NGS/humangenomics/active/2022/run/ont_human_workflow/'
+WKDIR="/NGS/humangenomics/active/2022/run/ont_human_workflow/"
 GUPPYPATH="/opt/admin/dsc/guppy-gpu/6.4.2/ont-guppy/bin/"
 REF="/NGS/clinicalgenomics/public_data/ncbi/GRCh38/GCA_000001405.15_GRCh38_no_alt_analysis_set.fasta.gz"
 
