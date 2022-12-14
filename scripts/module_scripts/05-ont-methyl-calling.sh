@@ -38,7 +38,7 @@ for HP in 1 2; do
     modbam2bed \
         -e -m 5mC --cpg -t 16 --haplotype ${HP} \
         ${REF} \
-        ${WKDIR}/results/03-ont-whatshap-phase/${SAMPLE}/${SAMPLE}_sorted_merged.hp.bam \
+        ${WKDIR}/results/04-ont-whatshap-phase/${SAMPLE}/${SAMPLE}_sorted_merged.hp.bam \
         | bgzip -c > ${WKDIR}/results/05-ont-methyl-calling/${SAMPLE}/bed/${SAMPLE}_methylation.hp${HP}.cpg.bed.gz
 done;
 
@@ -46,7 +46,7 @@ done;
 modbam2bed \
   -e -m 5mC --cpg --aggregate -t 16 \
   ${REF} \
-  ${WKDIR}/results/03-ont-whatshap-phase/${SAMPLE}/${SAMPLE}_sorted_merged.hp.bam \
+  ${WKDIR}/results/04-ont-whatshap-phase/${SAMPLE}/${SAMPLE}_sorted_merged.hp.bam \
   | bgzip -c > ${WKDIR}/results/05-ont-methyl-calling/${SAMPLE}/bed/${SAMPLE}_methylation.aggregated.cpg.bed.gz
 
 # move back into otiginal working directory

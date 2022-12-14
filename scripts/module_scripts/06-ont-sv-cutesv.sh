@@ -36,7 +36,7 @@ cuteSV \
 --diff_ratio_merging_INS 0.3 \
 --max_cluster_bias_DEL 100 \
 --diff_ratio_merging_DEL 0.3 \
-${WKDIR}/results/03-ont-whatshap-phase/${SAMPLE}/${SAMPLE}_sorted_merged.hp.bam \
+${WKDIR}/results/04-ont-whatshap-phase/${SAMPLE}/${SAMPLE}_sorted_merged.hp.bam \
 ${REF} \
 ${WKDIR}/results/06-ont-sv-cutesv/${SAMPLE}/${SAMPLE}_sv_cutesv.vcf \
 ${WKDIR}/results/06-ont-sv-cutesv/${SAMPLE}/cutesv_tmp/
