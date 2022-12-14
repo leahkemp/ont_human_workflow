@@ -59,7 +59,7 @@ nextflow run -c "${WKDIR}"/config/07-ont-wf-human-cnv/nextflow.config epi2me-lab
 --fasta "${REF}" \
 --genome hg38 \
 --bin_size 500 \
---threads "$THREADS" \
+--threads 48 \
 --map_threads 24
 
 # move back into otiginal working directory
