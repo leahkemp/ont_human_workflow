@@ -33,7 +33,7 @@ conda activate nextflow.22.10.1
 # run copy number variant calling
 nextflow run epi2me-labs/wf-cnv \
 -r v0.0.3 \
---fastq ${WKDIR}/results/00-cthulhu-guppy-gpu/basecalled/fastq/ \
+--fastq ${WKDIR}/results/00-guppy-gpu/basecalled/fastq/ \
 --sample_sheet sample_sheet.csv \
 --fasta ${REF} \
 --genome hg38 --bin_size 500
