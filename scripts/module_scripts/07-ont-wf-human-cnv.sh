@@ -17,6 +17,7 @@ REF="/NGS/clinicalgenomics/public_data/ncbi/GRCh38/GCA_000001405.15_GRCh38_no_al
 
 # create output directory if it doesn't yet exist
 mkdir -p "${WKDIR}"/results/07-ont-wf-human-cnv/"${SAMPLE}"/work/
+mkdir -p "${WKDIR}"/results/01-ont-guppy-gpu/"${SAMPLE}"/pass/fastq/ 
 
 # set the shell to be used by conda for this script (and re-start shell to implement changes)
 conda init bash
@@ -30,6 +31,9 @@ mamba env create \
 # activate nextflow conda environment
 conda activate nextflow.22.10.1
 
+# put fastq files in a single directory named "fastq" - Miles notes the pipeline seems to require this
+rsync -av "${WKDIR}"/results/01-ont-guppy-gpu/"${SAMPLE}"/pass/*.fastq "${WKDIR}"/results/01-ont-guppy-gpu/"${SAMPLE}"/pass/fastq/
+
 # run copy number variant calling
 nextflow run -c "${WKDIR}"/config/07-ont-wf-human-cnv/nextflow.config epi2me-labs/wf-cnv \
 -r v0.0.3 \
@@ -39,7 +43,7 @@ nextflow run -c "${WKDIR}"/config/07-ont-wf-human-cnv/nextflow.config epi2me-lab
 -with-timeline \
 -with-trace \
 -resume \
---fastq "${WKDIR}"/results/01-ont-guppy-gpu/"${SAMPLE}"/pass/*.fastq \
+--fastq "${WKDIR}"/results/01-ont-guppy-gpu/"${SAMPLE}"/pass/fastq/ \
 --sample_sheet "${WKDIR}"/config/07-ont-wf-human-cnv/wf_human_cnv_sample_sheet.csv \
 --fasta "${REF}" \
 --genome hg38 \
