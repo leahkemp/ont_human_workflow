@@ -1,7 +1,7 @@
 # Data transfer and management
 
 Created: 2022/12/12 12:36:19
-Last modified: 2022/12/14 16:10:22
+Last modified: 2022/12/14 16:21:10
 
 - **Aim:** This document outlines how to transfer data off the in house sequencers, backing up data on the dedicated space on production and organising the data
 - **Prerequisite software:** [rsync](https://rsync.samba.org/)
@@ -14,7 +14,7 @@ Last modified: 2022/12/14 16:10:22
   - [Transferring data off the in house sequencers and backing up data on production](#transferring-data-off-the-in-house-sequencers-and-backing-up-data-on-production)
     - [In house xavier](#in-house-xavier)
     - [In house gridion](#in-house-gridion)
-    - [Organise directory structure](#organise-directory-structure)
+  - [Organise directory structure](#organise-directory-structure)
   - [Cleanup](#cleanup)
 
 ## Transferring data off the in house sequencers and backing up data on production
@@ -78,7 +78,7 @@ Transfer to the dedicated space on production for backing up/storing this data, 
 rsync -av grid@10.1.30.16:/data/Adipose_AS_ours/* /NGS/clinicalgenomics/archive/2022/run/raw/adipose_ont_methylation/data/Adipose_AS_ours/
 ```
 
-### Organise directory structure
+## Organise directory structure
 
 Follow the established directory structure for the bulk of the data (at `/NGS/clinicalgenomics/archive/2022/run/raw/adipose_ont_methylation/data/Adipose_AS_ours/`)
 
