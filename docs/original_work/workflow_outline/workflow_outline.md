@@ -45,7 +45,8 @@ graph TD;
     variant_annotation-->VEP;
     variant_annotation-->dbNSFP;
     modbam_phased-->CNV_analysis([CNV analysis]);
-    CNV_analysis-->qdna-seq
+    CNV_analysis-->qdna-seq([wf-human-cnv]);
+    qdna-seq-->output(report + qdnaseq ouput);
     modbam_phased-->modbam2bed;
     modbam2bed-->mod_bed.gz;
     GRCh38_ref_genome{reference genome}-->modbam2bed;
