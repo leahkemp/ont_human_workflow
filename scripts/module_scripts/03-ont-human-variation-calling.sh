@@ -53,7 +53,6 @@ nextflow run -c ${NFCONFIG} epi2me-labs/wf-human-variation \
 --sv \
 --phase_vcf \
 --use_longphase \
---tr_bed ${TDREPETS} \
 --basecaller_cfg ${MODEL} \
 --bam ${WKDIR}/results/02-ont-bam-merge/${SAMPLE}/${SAMPLE}_merged_sorted.bam \
 --ref ${REF} \
@@ -65,3 +64,5 @@ nextflow run -c ${NFCONFIG} epi2me-labs/wf-human-variation \
 # (https://github.com/epi2me-labs/wf-human-variation), which performs variant calling (clair3),
 # phase marking, and structural variant calling using sniffles2 (sniffles2 was a seperate step
 # previously). 
+
+#--tr_bed ${TDREPETS} \

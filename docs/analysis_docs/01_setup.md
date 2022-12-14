@@ -1,7 +1,7 @@
 # 01 - Setup
 
 Created: 2022/12/12 12:51:38
-Last modified: 2022/12/13 13:39:52
+Last modified: 2022/12/14 13:08:18
 
 - **Aim:** This document outlines the setup for running the "pipeline" module scripts on ESR's production network
 - **OS:** ORAC (CentOS Linux) (ESR production network)
@@ -165,18 +165,22 @@ git clone https://github.com/leahkemp/ont_human_workflow.git
 
 We need to configure some variables in each of the "pipeline" module scripts at [./scripts/module_scripts/](./scripts/module_scripts/).
 
-Each bash module script has modifiable SLURM parameters. All are configured appropriately for the ESR production network. The only variable that should need configuring is the email address to which emails indicating completion or failure of scripts can be sent.
+All bash module script's have modifiable SLURM parameters and bash variables. All are configured appropriately for the ESR production network. The only SLURM variable that should need configuring is the email address to which emails indicating completion or failure of scripts can be sent.
 
 ```bash
 #SBATCH --mail-user=leah.kemp@esr.cri.nz
 ```
 
-Each bash module script also has modifiable bash variables. Again, all are configured appropriately for the ESR production network and the only variables that should need configuring is the sample to be analysed and the location of the input fast5 files.
+In terms of bash variables, the only variables that should need configuring is the sample to be analysed, the location of the input fast5 files and possibly the flow cell and kit used in the sequencing.
 
 ```bash
 SAMPLE="OM1052A"
+FLOWCELL="FLO-MIN106"
+KIT="SQK-LSK110"
 INPUTDIR="/NGS/humangenomics/active/2022/run/ont_human_workflow/fast5/OM1052A/"
 ```
+
+*Note. the flow cell and kit used for sequencing can be found in the final_summary file found alongside the raw sequencing data. For example `/NGS/clinicalgenomics/archive/2022/run/raw/adipose_ont_methylation/data/Adipose_AS_ours/OM1052A/run1/20221114_0429_X5_FAQ91514_d446fbce/final_summary_FAQ91514_d446fbce_df0aee03.txt`.*
 
 ## Get data
 
