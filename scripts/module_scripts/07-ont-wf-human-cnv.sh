@@ -21,7 +21,7 @@ rm -rf "${WKDIR}"/results/07-ont-wf-human-cnv/"${SAMPLE}"/fastq/
 
 # create output directory if it doesn't yet exist
 mkdir -p "${WKDIR}"/results/07-ont-wf-human-cnv/"${SAMPLE}"/work/
-mkdir -p "${WKDIR}"/results/07-ont-wf-human-cnv/"${SAMPLE}"/fastq/ 
+mkdir -p "${WKDIR}"/results/07-ont-wf-human-cnv/"${SAMPLE}"/fastq/
 
 # set the shell to be used by conda for this script (and re-start shell to implement changes)
 conda init bash
@@ -37,6 +37,13 @@ conda activate nextflow.22.10.1
 
 # put fastq files in a single directory named "fastq" - Miles notes the pipeline seems to require this
 rsync -av "${WKDIR}"/results/01-ont-guppy-gpu/"${SAMPLE}"/pass/*.fastq "${WKDIR}"/results/07-ont-wf-human-cnv/"${SAMPLE}"/fastq/ 
+
+# compress the fastq files - Miles notes the pipeline seems to require this
+for file in "${WKDIR}"/results/07-ont-wf-human-cnv/"${SAMPLE}"/fastq/*.fastq ; do 
+  echo -e "... processing $file ...";
+  bgzip "$file";
+  echo -e "... done ...";
+done
 
 # run copy number variant calling
 nextflow run -c "${WKDIR}"/config/07-ont-wf-human-cnv/nextflow.config epi2me-labs/wf-cnv \
