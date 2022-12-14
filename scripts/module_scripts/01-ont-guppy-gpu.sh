@@ -3,7 +3,7 @@
 #SBATCH --mail-user=leah.kemp@esr.cri.nz
 #SBATCH --mail-type=END,FAIL
 #SBATCH --partition=gpu
-#SBATCH --job-name=01-guppy-gpu
+#SBATCH --job-name=01-ont-guppy-gpu
 #SBATCH --time=36:00:00
 #SBATCH --ntasks 1
 #SBATCH --cpus-per-task 12
@@ -20,10 +20,10 @@ GUPPYPATH="/opt/admin/dsc/guppy-gpu/6.4.2/ont-guppy/bin/"
 REF="/NGS/clinicalgenomics/public_data/ncbi/GRCh38/GCA_000001405.15_GRCh38_no_alt_analysis_set.fasta.gz"
 
 # cleaup old ouputs of this script to avoid writing to file twice
-rm -rf ${WKDIR}/results/01-guppy-gpu/${SAMPLE}/
+rm -rf ${WKDIR}/results/01-ont-guppy-gpu/${SAMPLE}/
 
 # create output directory if it doesn't yet exist
-mkdir -p ${WKDIR}/results/01-guppy-gpu/${SAMPLE}/
+mkdir -p ${WKDIR}/results/01-ont-guppy-gpu/${SAMPLE}/
 
 # run Guppy+Remora+Alignment
 "${GUPPYPATH}"/guppy_basecaller \
@@ -31,7 +31,7 @@ mkdir -p ${WKDIR}/results/01-guppy-gpu/${SAMPLE}/
 --kit "${KIT}" \
 -a "${REF}" \
 -i "${INPUTDIR}" \
--s "${WKDIR}/results/01-guppy-gpu/${SAMPLE}/" \
+-s "${WKDIR}/results/01-ont-guppy-gpu/${SAMPLE}/" \
 --chunks_per_runner 412 \
 --num_alignment_threads 16 \
 --num_base_mod_threads 16 \

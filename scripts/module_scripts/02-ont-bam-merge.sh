@@ -21,7 +21,7 @@ rm -rf ${WKDIR}/results/02-ont-bam-merge/${SAMPLE}/
 mkdir -p ${WKDIR}/results/02-ont-bam-merge/${SAMPLE}/
 
 # create list of bam files to merge
-ls ${WKDIR}/results/01-guppy-gpu/${SAMPLE}/pass/*.bam > ${WKDIR}/results/02-ont-bam-merge/${SAMPLE}/${SAMPLE}_bam_list.txt
+ls ${WKDIR}/results/01-ont-guppy-gpu/${SAMPLE}/pass/*.bam > ${WKDIR}/results/02-ont-bam-merge/${SAMPLE}/${SAMPLE}_bam_list.txt
 
 # create conda environment with bamtools installed
 mamba env create \

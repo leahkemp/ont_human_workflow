@@ -1,7 +1,7 @@
 # 02 - Run module scripts
 
 Created: 2022/12/12 12:51:47
-Last modified: 2022/12/14 16:31:34
+Last modified: 2022/12/15 10:56:28
 
 - **Aim:** This document outlines the process for running the "pipeline" module scripts on ESR's production network
 - **OS:** ORAC (CentOS Linux) (ESR production network)
@@ -23,7 +23,7 @@ cd /NGS/humangenomics/active/2022/run/ont_human_workflow/
 Run each module script sequentially, run only one script at a time since some scripts depend on the outputs of earlier scripts
 
 ```bash
-sbatch ./scripts/module_scripts/01-guppy-gpu.sh
+sbatch ./scripts/module_scripts/01-ont-guppy-gpu.sh
 
 sbatch ./scripts/module_scripts/02-ont-bam-merge.sh
 
