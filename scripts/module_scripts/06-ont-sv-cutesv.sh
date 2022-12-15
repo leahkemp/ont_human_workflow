@@ -4,7 +4,7 @@
 #SBATCH --mail-type=END,FAIL
 #SBATCH --partition prod
 #SBATCH --job-name=06-ont-sv-cutesv
-#SBATCH --time=6:00:00
+#SBATCH --time=1:00:00
 #SBATCH --ntasks 1
 #SBATCH --cpus-per-task 16
 #SBATCH --mem 128G
