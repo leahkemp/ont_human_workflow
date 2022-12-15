@@ -14,7 +14,7 @@
 SAMPLE="OM1052A"
 WKDIR="/NGS/humangenomics/active/2022/run/ont_human_workflow/"
 MODEL="dna_r9.4.1_450bps_hac"
-REF="/NGS/clinicalgenomics/public_data/ncbi/GRCh38/GCA_000001405.15_GRCh38_no_alt_analysis_set.fasta"
+REF="/NGS/clinicalgenomics/public_data/ncbi/GRCh38/GCF_000001405.40_GRCh38.p14_genomic.fna"
 TDREPETS="/NGS/humangenomics/active/2022/run/ont_human_workflow/demo_data_new/demo_data/human_GRCh38_no_alt_analysis_set.trf.bed"
 
 # cleaup old ouputs of this script to avoid writing to file twice
