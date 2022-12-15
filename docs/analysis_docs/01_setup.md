@@ -1,7 +1,7 @@
 # 01 - Setup
 
 Created: 2022/12/12 12:51:38
-Last modified: 2022/12/14 16:22:16
+Last modified: 2022/12/16 11:35:09
 
 - **Aim:** This document outlines the setup for running the "pipeline" module scripts on ESR's production network
 - **OS:** ORAC (CentOS Linux) (ESR production network)
@@ -12,6 +12,8 @@ Last modified: 2022/12/14 16:22:16
   - [Table of contents](#table-of-contents)
   - [Get software dependencies](#get-software-dependencies)
   - [Clone the project repository](#clone-the-project-repository)
+  - [Get input files](#get-input-files)
+    - [Reference genome](#reference-genome)
   - [Configure all user configurable parameters](#configure-all-user-configurable-parameters)
   - [Get data](#get-data)
 
@@ -159,6 +161,20 @@ Clone the github repository
 
 ```bash
 git clone https://github.com/leahkemp/ont_human_workflow.git
+```
+
+## Get input files
+### Reference genome
+
+```bash
+# get reference genome
+wget https://ftp.ncbi.nlm.nih.gov/refseq/H_sapiens/annotation/annotation_releases/110/GCF_000001405.40_GRCh38.p14/GCF_000001405.40_GRCh38.p14_genomic.fna.gz
+
+# un-compress (required for some tools in pipeline such as whatshap)
+gunzip GCF_000001405.40_GRCh38.p14_genomic.fna.gz
+
+# index
+samtools faidx GCF_000001405.40_GRCh38.p14_genomic.fna
 ```
 
 ## Configure all user configurable parameters
