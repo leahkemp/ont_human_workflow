@@ -25,6 +25,9 @@ rm -rf "${WKDIR}"/results/01-ont-guppy-gpu/"${SAMPLE}"/
 # create output directory if it doesn't yet exist
 mkdir -p "${WKDIR}"/results/01-ont-guppy-gpu/"${SAMPLE}"/
 
+# move to working dir
+cd "${WKDIR}"/results/01-ont-guppy-gpu/"${SAMPLE}"/
+
 # run Guppy+Remora+Alignment
 "${GUPPYPATH}"/guppy_basecaller \
 --flowcell "${FLOWCELL}" \
@@ -39,3 +42,6 @@ mkdir -p "${WKDIR}"/results/01-ont-guppy-gpu/"${SAMPLE}"/
 --device "cuda:0,1" \
 --bam_out \
 --index
+
+# move back into original working directory
+cd "${WKDIR}"

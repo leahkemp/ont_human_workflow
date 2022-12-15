@@ -53,6 +53,9 @@ mamba env create \
 # activate nextflow conda environment
 conda activate nextflow.22.10.1
 
+# move to working dir
+cd "${WKDIR}"/results/07-ont-wf-human-cnv/"${SAMPLE}"/
+
 # run copy number variant calling
 nextflow run -c "${WKDIR}"/config/07-ont-wf-human-cnv/nextflow.config epi2me-labs/wf-cnv \
 -r v0.0.3 \
@@ -70,7 +73,7 @@ nextflow run -c "${WKDIR}"/config/07-ont-wf-human-cnv/nextflow.config epi2me-lab
 --threads 48 \
 --map_threads 24
 
-# move back into otiginal working directory
+# move back into original working directory
 cd "${WKDIR}"
 
 # Notes:

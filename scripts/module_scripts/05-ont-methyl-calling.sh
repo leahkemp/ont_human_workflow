@@ -49,7 +49,7 @@ modbam2bed \
   "${WKDIR}"/results/04-ont-whatshap-phase/"${SAMPLE}"/"${SAMPLE}"_sorted_merged.hp.bam \
   | bgzip -c > "${WKDIR}"/results/05-ont-methyl-calling/"${SAMPLE}"/bed/"${SAMPLE}"_methylation.aggregated.cpg.bed.gz
 
-# move back into otiginal working directory
+# move back into original working directory
 cd "${WKDIR}"
 
 # Notes:

@@ -36,6 +36,9 @@ mamba env create \
 # activate nextflow conda environment
 conda activate nextflow.22.10.1
 
+# move to working dir
+cd "${WKDIR}"/results/03-ont-human-variation-calling/"${SAMPLE}"/
+
 # run Clair3 variant calling and sniffles2
 nextflow run -c "${WKDIR}"/config/03-ont-human-variation-calling/nextflow.config epi2me-labs/wf-human-variation \
 -r v1.0.0 \
@@ -56,6 +59,9 @@ nextflow run -c "${WKDIR}"/config/03-ont-human-variation-calling/nextflow.config
 --ref "${REF}" \
 --sample_name "${SAMPLE}" \
 --out_dir "${WKDIR}"/results/03-ont-human-variation-calling/"${SAMPLE}"/
+
+# move back into original working directory
+cd "${WKDIR}"
 
 # Notes:
 # This step calls the ONT wf-human-variation nextflow pipeline
