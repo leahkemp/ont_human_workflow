@@ -44,13 +44,13 @@ cuteSV \
 "${WKDIR}"/results/06-ont-sv-cutesv/"${SAMPLE}"/"${SAMPLE}"_sv_cutesv.vcf \
 "${WKDIR}"/results/06-ont-sv-cutesv/"${SAMPLE}"/cutesv_tmp/
 
-# create conda environment with sambamba installed
+# create conda environment with htslib installed (contains bgzip)
 mamba env create \
 --force \
--f "${WKDIR}"/scripts/envs/conda.sambamba.0.8.2.yml
+-f "${WKDIR}"/scripts/envs/conda.htslib.1.10.2.yml
 
-# activate sambamba conda environment
-conda activate sambamba.0.8.2
+# activate htslib conda environment
+conda activate htslib.1.10.2
 
 # compress vcf
 bgzip "${WKDIR}"/results/06-ont-sv-cutesv/"${SAMPLE}"/"${SAMPLE}"_sv_cutesv.vcf
