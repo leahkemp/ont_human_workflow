@@ -3,7 +3,7 @@
 #SBATCH --mail-user=leah.kemp@esr.cri.nz
 #SBATCH --mail-type=END,FAIL
 #SBATCH --partition prod
-#SBATCH --job-name=03-ont-human-variation-calling
+#SBATCH --job-name=03-ont-wf-human-variation-calling
 #SBATCH --time=24:00:00
 #SBATCH --ntasks 1
 #SBATCH --cpus-per-task 24
@@ -18,11 +18,11 @@ REF="/NGS/clinicalgenomics/public_data/ncbi/GRCh38/GCA_000001405.15_GRCh38_no_al
 TDREPETS="/NGS/humangenomics/active/2022/run/ont_human_workflow/demo_data_new/demo_data/human_GRCh38_no_alt_analysis_set.trf.bed"
 
 # cleaup old ouputs of this script to avoid writing to file twice
-rm -rf "${WKDIR}"/results/03-ont-human-variation-calling/"${SAMPLE}"/
+rm -rf "${WKDIR}"/results/03-ont-wf-human-variation-calling/"${SAMPLE}"/
 
 # create output directory if it doesn't yet exist
-mkdir -p "${WKDIR}"/results/03-ont-human-variation-calling/"${SAMPLE}"/work/
-mkdir -p "${WKDIR}"/results/03-ont-human-variation-calling/"${SAMPLE}"/
+mkdir -p "${WKDIR}"/results/03-ont-wf-human-variation-calling/"${SAMPLE}"/work/
+mkdir -p "${WKDIR}"/results/03-ont-wf-human-variation-calling/"${SAMPLE}"/
 
 # set the shell to be used by conda for this script (and re-start shell to implement changes)
 conda init bash
@@ -37,12 +37,12 @@ mamba env create \
 conda activate nextflow.22.10.1
 
 # move to working dir
-cd "${WKDIR}"/results/03-ont-human-variation-calling/"${SAMPLE}"/
+cd "${WKDIR}"/results/03-ont-wf-human-variation-calling/"${SAMPLE}"/
 
 # run Clair3 variant calling and sniffles2
-nextflow run -c "${WKDIR}"/config/03-ont-human-variation-calling/nextflow.config epi2me-labs/wf-human-variation \
+nextflow run -c "${WKDIR}"/config/03-ont-wf-human-variation-calling/nextflow.config epi2me-labs/wf-human-variation \
 -r v1.0.0 \
--w "${WKDIR}"/results/03-ont-human-variation-calling/"${SAMPLE}"/work/ \
+-w "${WKDIR}"/results/03-ont-wf-human-variation-calling/"${SAMPLE}"/work/ \
 -profile singularity \
 -with-report \
 -with-timeline \
@@ -58,7 +58,7 @@ nextflow run -c "${WKDIR}"/config/03-ont-human-variation-calling/nextflow.config
 --bam "${WKDIR}"/results/02-ont-bam-merge/"${SAMPLE}"/"${SAMPLE}"_merged_sorted.bam \
 --ref "${REF}" \
 --sample_name "${SAMPLE}" \
---out_dir "${WKDIR}"/results/03-ont-human-variation-calling/"${SAMPLE}"/
+--out_dir "${WKDIR}"/results/03-ont-wf-human-variation-calling/"${SAMPLE}"/
 
 # move back into original working directory
 cd "${WKDIR}"
