@@ -48,7 +48,7 @@ cuteSV \
 cd "${WKDIR}"
 
 # cleanup uneeded directory
-rm "${WKDIR}"/results/06-ont-sv-cutesv/"${SAMPLE}"/cutesv_tmp/
+rm -r "${WKDIR}"/results/06-ont-sv-cutesv/"${SAMPLE}"/cutesv_tmp/
 
 # Notes:
 # this step is for evaluation of another structural variant caller, cuteSV. It's 
