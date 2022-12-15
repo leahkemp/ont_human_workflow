@@ -51,6 +51,6 @@ cd "${WKDIR}"
 # this step is for evaluation of another structural variant caller, cuteSV. It's 
 # often nice to have the ability to compare results between various tools. As 
 # SVs are important to this project this step has been included in the process.
-# For other projects it may well be enough to stop after processing step 06.
+# For other projects it may well be enough to stop after processing step 05-ont-methyl-calling.
 # This process outputs a vcf file with the structural variation recorded per
 # line.
