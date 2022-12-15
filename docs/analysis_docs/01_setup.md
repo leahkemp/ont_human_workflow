@@ -1,7 +1,7 @@
 # 01 - Setup
 
 Created: 2022/12/12 12:51:38
-Last modified: 2022/12/16 11:49:21
+Last modified: 2022/12/16 12:40:19
 
 - **Aim:** This document outlines the setup for running the "pipeline" module scripts on ESR's production network
 - **OS:** ORAC (CentOS Linux) (ESR production network)
@@ -12,7 +12,7 @@ Last modified: 2022/12/16 11:49:21
   - [Table of contents](#table-of-contents)
   - [Get software dependencies](#get-software-dependencies)
   - [Clone the project repository](#clone-the-project-repository)
-  - [Get input files](#get-input-files)
+  - [Get input files \[X\]](#get-input-files-x)
     - [Reference genome](#reference-genome)
   - [Configure all user configurable parameters](#configure-all-user-configurable-parameters)
   - [Get data](#get-data)
@@ -163,7 +163,7 @@ Clone the github repository
 git clone https://github.com/leahkemp/ont_human_workflow.git
 ```
 
-## Get input files
+## Get input files [X]
 ### Reference genome
 
 ```bash
