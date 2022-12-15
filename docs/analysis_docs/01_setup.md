@@ -1,7 +1,7 @@
 # 01 - Setup
 
 Created: 2022/12/12 12:51:38
-Last modified: 2022/12/16 12:52:56
+Last modified: 2022/12/16 12:53:44
 
 - **Aim:** This document outlines the setup for running the "pipeline" module scripts on ESR's production network
 - **OS:** ORAC (CentOS Linux) (ESR production network)
@@ -184,7 +184,7 @@ mamba env create \
 --force \
 -f ./scripts/envs/conda.samtools.1.16.1.yml
 
-conda activate bamtools.2.5.2
+conda activate samtools.1.16.1
 
 samtools faidx GCF_000001405.40_GRCh38.p14_genomic.fna
 ```
