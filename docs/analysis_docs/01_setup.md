@@ -1,7 +1,7 @@
 # 01 - Setup
 
 Created: 2022/12/12 12:51:38
-Last modified: 2022/12/16 12:53:44
+Last modified: 2022/12/16 12:58:42
 
 - **Aim:** This document outlines the setup for running the "pipeline" module scripts on ESR's production network
 - **OS:** ORAC (CentOS Linux) (ESR production network)
@@ -199,7 +199,7 @@ All bash module script's have modifiable SLURM parameters and bash variables. Al
 #SBATCH --mail-user=leah.kemp@esr.cri.nz
 ```
 
-In terms of bash variables, the only variables that should need configuring is the sample to be analysed, the location of the input fast5 files and possibly the flow cell and kit used in the sequencing.
+In terms of bash variables, the only variables that should need configuring is the sample to be analysed, the location of the input fast5 files and possibly the flow cell and kit used.
 
 ```bash
 SAMPLE="OM1052A"
@@ -209,6 +209,18 @@ INPUTDIR="/NGS/humangenomics/active/2022/run/ont_human_workflow/fast5/OM1052A/"
 ```
 
 *Note. the flow cell and kit used for sequencing can be found in the final_summary file found alongside the raw sequencing data. For example `/NGS/clinicalgenomics/archive/2022/run/raw/adipose_ont_methylation/data/Adipose_AS_ours/OM1052A/run1/20221114_0429_X5_FAQ91514_d446fbce/final_summary_FAQ91514_d446fbce_df0aee03.txt`.*
+
+You may also need to configure the bash variable that defines the model used by the `./scripts/module_scripts/03-ont-wf-human-variation-calling.sh` script depending on the flow cell and kit used.
+
+```bash
+MODEL="dna_r9.4.1_450bps_hac"
+```
+
+You can view the model options and choose the appropriate model for your sequencing run with guppy, for example:
+
+```bash
+/opt/admin/dsc/guppy-gpu/6.4.2/ont-guppy/bin/guppy_basecaller --print_workflows
+```
 
 ## Get data
 
