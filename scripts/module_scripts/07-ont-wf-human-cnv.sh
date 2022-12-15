@@ -4,10 +4,10 @@
 #SBATCH --mail-type=END,FAIL
 #SBATCH --partition prod
 #SBATCH --job-name=07-ont-wf-human-cnv
-#SBATCH --time=
+#SBATCH --time=24:00:00
 #SBATCH --ntasks 1
-#SBATCH --cpus-per-task
-#SBATCH --mem
+#SBATCH --cpus-per-task 48
+#SBATCH --mem 130G
 #SBATCH --output="./logs/slurm-%j-%x.out"
 
 # define variables
