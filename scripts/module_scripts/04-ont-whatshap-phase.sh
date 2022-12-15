@@ -35,7 +35,7 @@ conda activate whatshap.1.7
 
 # whatshap phase tagging of bam output
 whatshap haplotag \
-"${WKDIR}"/results/03-ont-human-variation-calling/"${SAMPLE}"/"${SAMPLE}"_all.wf_snp.vcf.gz \
+"${WKDIR}"/results/03-ont-human-variation-calling/"${SAMPLE}"/"${SAMPLE}".wf_snp.vcf.gz \
 "${WKDIR}"/results/02-ont-bam-merge/"${SAMPLE}"/"${SAMPLE}"_merged_sorted.bam \
 --output "${WKDIR}"/results/04-ont-whatshap-phase/"${SAMPLE}"/"${SAMPLE}"_sorted_merged.hp.bam  \
 --reference "${REF}" \
