@@ -1,7 +1,7 @@
 # 02 - Run module scripts
 
 Created: 2022/12/12 12:51:47
-Last modified: 2022/12/16 12:36:21
+Last modified: 2022/12/16 12:37:50
 
 - **Aim:** This document outlines the process for running the "pipeline" module scripts on ESR's production network
 - **OS:** ORAC (CentOS Linux) (ESR production network)
@@ -27,7 +27,7 @@ sbatch ./scripts/module_scripts/01-ont-guppy-gpu.sh
 
 sbatch ./scripts/module_scripts/02-ont-bam-merge.sh
 
-sbatch ./scripts/module_scripts/03-ont-wf-human-variation-callinging.sh
+sbatch ./scripts/module_scripts/03-ont-wf-human-variation-calling.sh
 
 sbatch ./scripts/module_scripts/04-ont-whatshap-phase.sh
 
