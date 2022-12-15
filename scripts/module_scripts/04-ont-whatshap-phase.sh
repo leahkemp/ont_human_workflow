@@ -13,7 +13,7 @@
 # define variables
 SAMPLE="OM1052A"
 WKDIR="/NGS/humangenomics/active/2022/run/ont_human_workflow/"
-REF="GCF_000001405.40_GRCh38.p14_genomic.fna"
+REF="/NGS/clinicalgenomics/public_data/ncbi/GRCh38/GCA_000001405.15_GRCh38_no_alt_analysis_set.fasta"
 
 # cleaup old ouputs of this script to avoid writing to file twice
 rm -rf "${WKDIR}"/results/04-ont-whatshap-phase/"${SAMPLE}"/
