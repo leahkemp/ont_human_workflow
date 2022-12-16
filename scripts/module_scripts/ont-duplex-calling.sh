@@ -29,3 +29,6 @@ duplex_tools filter_pairs "${OUTPUTDIR}"/duplex/pair_ids.txt "${INPUTDIR}"/fastq
 
 # Notes:
 # WARNING: remember to change --chunks_per_runner to fit with the GPU resources that are available
+# A lot of things Nanopore this will change quickly (when Dorado becomes the new production basecaller),
+# but for now this will work. The newest version (Dec 2022) of duplex-tools has increased the number
+# of identified duplex reads.
