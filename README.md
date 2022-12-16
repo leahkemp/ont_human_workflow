@@ -48,12 +48,12 @@ graph TD;
     annotated_vcf.gz-->SNV_indel_analysis([SNV/indel analysis]);
 ```
 
-## Analysis workflow to run this code on the ESR production network
+## Analysis workflow run this analysis on the ESR production network
 
-- [Data transfer and management](https://github.com/leahkemp/ont_human_workflow/blob/main/docs/data_transfer_and_management/data_transfer_and_management.md)
-- [01 - Setup](https://github.com/leahkemp/ont_human_workflow/blob/main/docs/analysis_docs/01_setup.md)
-- [02 - Run module scripts](https://github.com/leahkemp/ont_human_workflow/blob/main/docs/analysis_docs/02_run_module_scripts.md)
-- [Cleanup](https://github.com/leahkemp/ont_human_workflow/blob/main/docs/cleanup/cleanup.md)
+- [01 - Data transfer and management](https://github.com/leahkemp/ont_human_workflow/blob/main/docs/analysis_docs/01_data_transfer_and_management.md)
+- [02 - Setup](https://github.com/leahkemp/ont_human_workflow/blob/main/docs/analysis_docs/02_setup.md)
+- [03 - Run module scripts](https://github.com/leahkemp/ont_human_workflow/blob/main/docs/analysis_docs/03_run_module_scripts.md)
+- [04 - Cleanup](https://github.com/leahkemp/ont_human_workflow/blob/main/docs/analysis_docs/04_cleanup.md)
 
 ## Access
 

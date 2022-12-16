@@ -1,7 +1,7 @@
-# Data transfer and management
+# 01 - Data transfer and management
 
 Created: 2022/12/12 12:36:19
-Last modified: 2022/12/14 16:21:10
+Last modified: 2022/12/16 13:23:11
 
 - **Aim:** This document outlines how to transfer data off the in house sequencers, backing up data on the dedicated space on production and organising the data
 - **Prerequisite software:** [rsync](https://rsync.samba.org/)
@@ -9,7 +9,7 @@ Last modified: 2022/12/14 16:21:10
 
 ## Table of contents
 
-- [Data transfer and management](#data-transfer-and-management)
+- [01 - Data transfer and management](#01---data-transfer-and-management)
   - [Table of contents](#table-of-contents)
   - [Transferring data off the in house sequencers and backing up data on production](#transferring-data-off-the-in-house-sequencers-and-backing-up-data-on-production)
     - [In house xavier](#in-house-xavier)

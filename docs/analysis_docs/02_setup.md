@@ -1,14 +1,14 @@
-# 01 - Setup
+# 02 - Setup
 
 Created: 2022/12/12 12:51:38
-Last modified: 2022/12/16 12:58:42
+Last modified: 2022/12/16 13:23:16
 
 - **Aim:** This document outlines the setup for running the "pipeline" module scripts on ESR's production network
 - **OS:** ORAC (CentOS Linux) (ESR production network)
 
 ## Table of contents
 
-- [01 - Setup](#01---setup)
+- [02 - Setup](#02---setup)
   - [Table of contents](#table-of-contents)
   - [Get software dependencies](#get-software-dependencies)
   - [Clone the project repository](#clone-the-project-repository)
