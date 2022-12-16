@@ -1,7 +1,7 @@
 # 02 - Setup
 
 Created: 2022/12/12 12:51:38
-Last modified: 2022/12/16 14:41:25
+Last modified: 2022/12/17 09:46:16
 
 - **Aim:** This document outlines the setup for running the "pipeline" module scripts on ESR's production network
 - **OS:** ORAC (CentOS Linux) (ESR production network)
@@ -192,7 +192,7 @@ samtools faidx GRCh38_no_alt_analysis_set_GCA_000001405.15.fasta
 We also need the bed file defining the tandem repeat regions. This only needs to be done once.
 
 ```bash
-wget https://github.com/fritzsedlazeck/Sniffles/blob/master/annotations/human_GRCh38_no_alt_analysis_set.trf.bed
+wget https://github.com/fritzsedlazeck/Sniffles/raw/master/annotations/human_GRCh38_no_alt_analysis_set.trf.bed
 ```
 
 ## Configure all user configurable parameters
