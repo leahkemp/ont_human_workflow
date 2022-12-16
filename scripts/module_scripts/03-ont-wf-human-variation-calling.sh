@@ -15,7 +15,7 @@ SAMPLE="OM1052A"
 WKDIR="/NGS/humangenomics/active/2022/run/ont_human_workflow/"
 MODEL="dna_r9.4.1_450bps_hac"
 REF="/NGS/clinicalgenomics/public_data/encode/GRCh38/GRCh38_no_alt_analysis_set_GCA_000001405.15.fasta"
-TDREPETS="/NGS/clinicalgenomics/public_data/encode/GRCh38/human_GRCh38_no_alt_analysis_set.trf.bed"
+TDREPETS="/NGS/clinicalgenomics/public_data/beds/human_GRCh38_no_alt_analysis_set.trf.bed"
 
 # cleaup old ouputs of this script to avoid writing to file twice
 rm -rf "${WKDIR}"/results/03-ont-wf-human-variation-calling/"${SAMPLE}"/
