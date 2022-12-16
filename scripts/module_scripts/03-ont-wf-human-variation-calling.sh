@@ -15,6 +15,7 @@ SAMPLE="OM1052A"
 WKDIR="/NGS/humangenomics/active/2022/run/ont_human_workflow/"
 MODEL="dna_r9.4.1_450bps_hac"
 REF="/NGS/clinicalgenomics/public_data/encode/GRCh38/GRCh38_no_alt_analysis_set_GCA_000001405.15.fasta"
+BED="/NGS/clinicalgenomics/public_data/beds/illumina450K_hg38_cpgsites_generegions_2Kpad_controls.collapsed.sorted.bed"
 TDREPETS="/NGS/clinicalgenomics/public_data/beds/human_GRCh38_no_alt_analysis_set.trf.bed"
 
 # cleaup old ouputs of this script to avoid writing to file twice
@@ -55,6 +56,7 @@ nextflow run -c "${WKDIR}"/config/03-ont-wf-human-variation-calling/nextflow.con
 --use_longphase \
 --basecaller_cfg "${MODEL}" \
 --tr_bed "${TDREPETS}" \
+--bed "${BED}" \
 --bam "${WKDIR}"/results/02-ont-bam-merge/"${SAMPLE}"/"${SAMPLE}"_merged_sorted.bam \
 --ref "${REF}" \
 --sample_name "${SAMPLE}" \

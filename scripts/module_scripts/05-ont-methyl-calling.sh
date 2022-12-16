@@ -14,6 +14,7 @@
 SAMPLE="OM1052A"
 WKDIR="/NGS/humangenomics/active/2022/run/ont_human_workflow/"
 REF="/NGS/clinicalgenomics/public_data/encode/GRCh38/GRCh38_no_alt_analysis_set_GCA_000001405.15.fasta"
+BED="/NGS/clinicalgenomics/public_data/beds/illumina450K_hg38_cpgsites_generegions_2Kpad_controls.collapsed.sorted.bed"
 
 # cleaup old ouputs of this script to avoid writing to file twice
 rm -rf "${WKDIR}"/results/05-ont-methyl-calling/"${SAMPLE}"/
@@ -45,6 +46,7 @@ for HP in 1 2; do
         -t 16 \
         --haplotype "${HP}" \
         "${REF}" \
+        --region "${BED}" \
         "${WKDIR}"/results/04-ont-whatshap-phase/"${SAMPLE}"/"${SAMPLE}"_sorted_merged.hp.bam \
         | bgzip -c > "${WKDIR}"/results/05-ont-methyl-calling/"${SAMPLE}"/"${SAMPLE}"_methylation.hp"${HP}".cpg.bed.gz
 done;
@@ -56,6 +58,7 @@ modbam2bed \
   --cpg \
   --aggregate -t 16 \
   "${REF}" \
+  --region "${BED}" \
   "${WKDIR}"/results/04-ont-whatshap-phase/"${SAMPLE}"/"${SAMPLE}"_sorted_merged.hp.bam \
   | bgzip -c > "${WKDIR}"/results/05-ont-methyl-calling/"${SAMPLE}"/"${SAMPLE}"_methylation.aggregated.cpg.bed.gz
 
