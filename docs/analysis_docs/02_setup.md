@@ -1,7 +1,7 @@
 # 02 - Setup
 
 Created: 2022/12/12 12:51:38
-Last modified: 2022/12/16 13:23:16
+Last modified: 2022/12/16 14:41:25
 
 - **Aim:** This document outlines the setup for running the "pipeline" module scripts on ESR's production network
 - **OS:** ORAC (CentOS Linux) (ESR production network)
@@ -174,10 +174,10 @@ We need a reference human genome for this "pipeline", so we will download one fr
 
 ```bash
 # get reference genome
-wget https://ftp.ncbi.nlm.nih.gov/refseq/H_sapiens/annotation/annotation_releases/110/GCF_000001405.40_GRCh38.p14/GCF_000001405.40_GRCh38.p14_genomic.fna.gz
+wget https://www.encodeproject.org/files/GRCh38_no_alt_analysis_set_GCA_000001405.15/@@download/GRCh38_no_alt_analysis_set_GCA_000001405.15.fasta.gz
 
 # un-compress (required for some tools in pipeline such as whatshap)
-gunzip GCF_000001405.40_GRCh38.p14_genomic.fna.gz
+gunzip GRCh38_no_alt_analysis_set_GCA_000001405.15.fasta.gz
 
 # index
 mamba env create \
@@ -186,7 +186,13 @@ mamba env create \
 
 conda activate samtools.1.16.1
 
-samtools faidx GCF_000001405.40_GRCh38.p14_genomic.fna
+samtools faidx GRCh38_no_alt_analysis_set_GCA_000001405.15.fasta
+```
+
+We also need the bed file defining the tandem repeat regions. This only needs to be done once.
+
+```bash
+wget https://github.com/fritzsedlazeck/Sniffles/blob/master/annotations/human_GRCh38_no_alt_analysis_set.trf.bed
 ```
 
 ## Configure all user configurable parameters
