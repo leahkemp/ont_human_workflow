@@ -53,7 +53,7 @@ graph TD;
 - [Data transfer and management](https://github.com/leahkemp/ont_human_workflow/blob/main/docs/data_transfer_and_management/data_transfer_and_management.md)
 - [01 - Setup](https://github.com/leahkemp/ont_human_workflow/blob/main/docs/analysis_docs/01_setup.md)
 - [02 - Run module scripts](https://github.com/leahkemp/ont_human_workflow/blob/main/docs/analysis_docs/02_run_module_scripts.md)
-- [03 - Cleanup](https://github.com/leahkemp/ont_human_workflow/blob/main/docs/cleanup/cleanup.md)
+- [Cleanup](https://github.com/leahkemp/ont_human_workflow/blob/main/docs/cleanup/cleanup.md)
 
 ## Access
 
