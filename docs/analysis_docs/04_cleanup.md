@@ -1,7 +1,7 @@
 # 04 - Cleanup
 
 Created: 2022/12/12 12:36:19
-Last modified: 2022/12/20 11:28:31
+Last modified: 2022/12/20 11:30:21
 
 - **Aim:** This document outlines how to back up the analyses on the dedicated space on production and cleanup
 - **Prerequisite software:** [rsync](https://rsync.samba.org/)
@@ -20,21 +20,23 @@ Minimal analyses will be backed up at `/NGS/clinicalgenomics/archive/2022/result
 Directory structure:
 
 ```bash
-/NGS/clinicalgenomics/archive/2022/results/adipose_ont_methylation
-├── [ 106]  Adipose_AS_RRMS
+/NGS/clinicalgenomics/archive/2022/results/adipose_ont_methylation/
+├── [ 127]  Adipose_AS_RRMS
 │   ├── [   0]  CNV
 │   ├── [   0]  QC
+│   ├── [   0]  SNP
 │   ├── [  68]  SV
 │   ├── [   0]  bam
 │   └── [   0]  methyl
-└── [ 106]  Adipose_AS_ours
-    ├── [   0]  CNV
-    ├── [   0]  QC
+└── [ 127]  Adipose_AS_ours
+    ├── [ 503]  CNV
+    ├── [ 149]  QC
+    ├── [  82]  SNP
     ├── [  68]  SV
-    ├── [   0]  bam
-    └── [   0]  methyl
+    ├── [  96]  bam
+    └── [ 211]  methyl
 
-12 directories, 0 files
+14 directories, 0 files
 ```
 
 Move analyses to be backed up, for example for sample OM1052A for the "Adipose_AS_ours" sequencing
