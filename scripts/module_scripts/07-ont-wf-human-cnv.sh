@@ -76,6 +76,12 @@ nextflow run -c "${WKDIR}"/config/07-ont-wf-human-cnv/nextflow.config epi2me-lab
 mv "${WKDIR}"/results/05-ont-methyl-calling/"${SAMPLE}"/mod-counts.cpg.acc.bed \
 "${WKDIR}"/results/05-ont-methyl-calling/"${SAMPLE}"/"${SAMPLE}"_mod-counts.cpg.acc.bed
 
+mv "${WKDIR}"/results/07-ont-wf-human-cnv/"${SAMPLE}"/output/fastq_wf-cnv-report.html \
+"${WKDIR}"/results/07-ont-wf-human-cnv/"${SAMPLE}"/output/"${SAMPLE}"_fastq_wf-cnv-report.html
+
+cd "${WKDIR}"/results/07-ont-wf-human-cnv/OM1052A/output/qdna_seq/
+for file in * ; do mv "$file" "${SAMPLE}_$file" ; done
+
 # move back into original working directory
 cd "${WKDIR}"
 
