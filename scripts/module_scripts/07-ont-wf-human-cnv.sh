@@ -72,6 +72,10 @@ nextflow run -c "${WKDIR}"/config/07-ont-wf-human-cnv/nextflow.config epi2me-lab
 --threads 48 \
 --map_threads 24
 
+# rename output file with sample name
+mv "${WKDIR}"/results/05-ont-methyl-calling/"${SAMPLE}"/mod-counts.cpg.acc.bed \
+"${WKDIR}"/results/05-ont-methyl-calling/"${SAMPLE}"/"${SAMPLE}"_mod-counts.cpg.acc.bed
+
 # move back into original working directory
 cd "${WKDIR}"
 
