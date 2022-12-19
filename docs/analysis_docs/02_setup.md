@@ -1,7 +1,7 @@
 # 02 - Setup
 
 Created: 2022/12/12 12:51:38
-Last modified: 2022/12/17 09:46:16
+Last modified: 2022/12/20 11:40:55
 
 - **Aim:** This document outlines the setup for running the "pipeline" module scripts on ESR's production network
 - **OS:** ORAC (CentOS Linux) (ESR production network)
@@ -235,16 +235,20 @@ We want the raw fast5 pass files from all sequencing runs for a given sample in 
 Make a copy of the data in your working directory, for example, the "OM1052A" sample has data from three sequencing runs:
 
 ```bash
+# make sure you have created your bash variables defining the sample and working directory
+SAMPLE="OM1052A"
+WKDIR="/NGS/humangenomics/active/2022/run/ont_human_workflow/"
+
 # create directory in our working directory to put all data
-mkdir -p /NGS/humangenomics/active/2022/run/ont_human_workflow/fast5/OM1052A/
+mkdir -p "${WKDIR}"/fast5/"${SAMPLE}"/
 
 # copy all pass fast5 data from all sequencing runs into this directory in our working directory
-rsync -av /NGS/clinicalgenomics/archive/2022/run/raw/adipose_ont_methylation/data/Adipose_AS_ours/OM1052A/run1/20221114_0429_X5_FAQ91514_d446fbce/fast5_pass/* \
-/NGS/humangenomics/active/2022/run/ont_human_workflow/fast5/OM1052A/
-rsync -av /NGS/clinicalgenomics/archive/2022/run/raw/adipose_ont_methylation/data/Adipose_AS_ours/OM1052A/run2/20221122_0500_X4_FAQ90706_7bf313c3/fast5_pass/* \
-/NGS/humangenomics/active/2022/run/ont_human_workflow/fast5/OM1052A/
-rsync -av /NGS/clinicalgenomics/archive/2022/run/raw/adipose_ont_methylation/data/Adipose_AS_ours/OM1052A/run3/20221122_2113_X4_FAQ90706_09b178bc/fast5_pass/* \
-/NGS/humangenomics/active/2022/run/ont_human_workflow/fast5/OM1052A/
+rsync -av /NGS/clinicalgenomics/archive/2022/run/raw/adipose_ont_methylation/data/Adipose_AS_ours/"${SAMPLE}"/run1/20221114_0429_X5_FAQ91514_d446fbce/fast5_pass/* \
+"${WKDIR}"/fast5/"${SAMPLE}"/
+rsync -av /NGS/clinicalgenomics/archive/2022/run/raw/adipose_ont_methylation/data/Adipose_AS_ours/"${SAMPLE}"/run2/20221122_0500_X4_FAQ90706_7bf313c3/fast5_pass/* \
+"${WKDIR}"/fast5/"${SAMPLE}"/
+rsync -av /NGS/clinicalgenomics/archive/2022/run/raw/adipose_ont_methylation/data/Adipose_AS_ours/"${SAMPLE}"/run3/20221122_2113_X4_FAQ90706_09b178bc/fast5_pass/* \
+"${WKDIR}"/fast5/"${SAMPLE}"/
 ```
 
 <details><summary markdown="span">Partial example raw fast5 files for a single sample (click to expand)</summary>
