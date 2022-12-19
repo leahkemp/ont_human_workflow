@@ -1,7 +1,7 @@
 # 04 - Cleanup
 
 Created: 2022/12/12 12:36:19
-Last modified: 2022/12/20 11:30:21
+Last modified: 2022/12/20 11:35:58
 
 - **Aim:** This document outlines how to back up the analyses on the dedicated space on production and cleanup
 - **Prerequisite software:** [rsync](https://rsync.samba.org/)
