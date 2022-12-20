@@ -14,7 +14,6 @@
 SAMPLE="OM1052A"
 FLOWCELL="FLO-MIN106"
 KIT="SQK-LSK110"
-INPUTDIR="/NGS/humangenomics/active/2022/run/ont_human_workflow/fast5/OM1052A/"
 WKDIR="/NGS/humangenomics/active/2022/run/ont_human_workflow/"
 GUPPYPATH="/opt/admin/dsc/guppy-gpu/6.4.2/ont-guppy/bin/"
 REF="/NGS/clinicalgenomics/public_data/encode/GRCh38/GRCh38_no_alt_analysis_set_GCA_000001405.15.fasta"
@@ -33,7 +32,7 @@ cd "${WKDIR}"/results/01-ont-guppy-gpu/"${SAMPLE}"/
 --flowcell "${FLOWCELL}" \
 --kit "${KIT}" \
 -a "${REF}" \
--i "${INPUTDIR}" \
+-i "${WKDIR}"/fast5/"${SAMPLE}"/ \
 -s "${WKDIR}"/results/01-ont-guppy-gpu/"${SAMPLE}"/ \
 --chunks_per_runner 412 \
 --num_alignment_threads 16 \
