@@ -1,7 +1,7 @@
 # 04 - Cleanup
 
 Created: 2022/12/12 12:36:19
-Last modified: 2022/12/20 11:43:15
+Last modified: 2022/12/21 16:04:39
 
 - **Aim:** This document outlines how to back up the analyses on the dedicated space on production and cleanup
 - **Prerequisite software:** [rsync](https://rsync.samba.org/)
@@ -43,7 +43,7 @@ Move analyses to be backed up, for example for sample OM1052A for the "Adipose_A
 
 ```bash
 # make sure you have created your bash variables defining the sample and working directory
-SAMPLE="OM1052A"
+SAMPLE="OM1052B"
 WKDIR="/NGS/humangenomics/active/2022/run/ont_human_workflow/"
 
 # bams
@@ -68,7 +68,7 @@ rsync -av "${WKDIR}"/results/03-ont-wf-human-variation-calling/"${SAMPLE}"/"${SA
 rsync -av "${WKDIR}"/results/07-ont-wf-human-cnv/"${SAMPLE}"/output/"${SAMPLE}"_fastq_wf-cnv-report.html /NGS/clinicalgenomics/archive/2022/results/adipose_ont_methylation/Adipose_AS_ours/QC/
 ```
 
-Clean up after analysis is confirmed to be backed up, for example for sample OM1052A
+Clean up after analysis is confirmed to be backed up
 
 ```bash
 rm -rf "${WKDIR}"/results/*/"${SAMPLE}"/
