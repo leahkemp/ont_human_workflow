@@ -32,7 +32,7 @@ graph TD;
     variant_annotation-->VEP;
     variant_annotation-->dbNSFP;
     modbam_phased-->CNV_analysis([CNV analysis]);
-    CNV_analysis-->qdna-seq([wf-human-cnv]);
+    CNV_analysis-->qdna-seq([wf-cnv]);
     qdna-seq-->output(report + qdnaseq ouput);
     modbam_phased-->modbam2bed;
     modbam2bed-->mod_bed.gz;
