@@ -1,7 +1,7 @@
 # 02 - Setup
 
 Created: 2022/12/12 12:51:38
-Last modified: 2022/12/20 14:28:26
+Last modified: 2023/03/01 12:29:33
 
 - **Aim:** This document outlines the setup for running the "pipeline" module scripts on ESR's production network
 - **OS:** ORAC (CentOS Linux) (ESR production network)
@@ -23,7 +23,7 @@ Get or ensure you have the appropriate software dependencies, what we need:
 - [git](https://git-scm.com/) (validated to work with v1.8.3.1)
 - [guppy]() (validated to work with v6.4.2)
 - [conda](https://docs.conda.io/en/latest/) (validated to work with v4.13.0)
-- [mamba](https://mamba.readthedocs.io/en/latest/index.html) (validated to work with v0.24.0)
+- [mamba](https://mamba.readthedocs.io/en/latest/index.html) (validated to work with v1.3.1)
 - [GNU coreutils](https://www.gnu.org/software/coreutils/) (validated to work with v8.22)
 - [rsync](https://rsync.samba.org/) (validated to work with v3.1.2)
 - [slurm](https://slurm.schedmd.com/overview.html) (validated to work with v20.11.6)
@@ -77,8 +77,8 @@ mamba --version
 <details><summary markdown="span">Example output indicating the software is installed and available (click to expand)</summary>
 
 ```bash
-mamba 0.24.0
-conda 4.13.0
+mamba 1.3.1
+conda 22.11.1
 ```
 
 </details>
@@ -181,10 +181,10 @@ gunzip GRCh38_no_alt_analysis_set_GCA_000001405.15.fasta.gz
 
 # index
 mamba env create \
---force \
+--yes \
 -f ./scripts/envs/conda.samtools.1.16.1.yml
 
-conda activate samtools.1.16.1
+conda activate ~/micromamba/envs/samtools.1.16.1
 
 samtools faidx GRCh38_no_alt_analysis_set_GCA_000001405.15.fasta
 ```

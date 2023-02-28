@@ -26,8 +26,12 @@ conda init bash
 source ~/.bashrc
 
 # create conda environment with whatshap installed and activate it
-mamba env create --force -f "${WKDIR}"/scripts/envs/conda.cutesv.2.0.2.yml
-conda activate cutesv.2.0.2
+mamba env create \
+--yes \
+-f "${WKDIR}"/scripts/envs/conda.cutesv.2.0.2.yml
+
+# activate whatshap conda environment
+conda activate ~/micromamba/envs/cutesv.2.0.2
 
 # move to working dir
 cd "${WKDIR}"/results/06-ont-sv-cutesv/"${SAMPLE}"/
@@ -46,11 +50,11 @@ cuteSV \
 
 # create conda environment with htslib installed (contains bgzip)
 mamba env create \
---force \
+--yes \
 -f "${WKDIR}"/scripts/envs/conda.htslib.1.10.2.yml
 
 # activate htslib conda environment
-conda activate htslib.1.10.2
+conda activate ~/micromamba/envs/htslib.1.10.2
 
 # compress vcf
 bgzip "${WKDIR}"/results/06-ont-sv-cutesv/"${SAMPLE}"/"${SAMPLE}"_sv_cutesv.vcf

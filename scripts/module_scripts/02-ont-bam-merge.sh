@@ -25,11 +25,11 @@ ls "${WKDIR}"/results/01-ont-guppy-gpu/"${SAMPLE}"/pass/*.bam > "${WKDIR}"/resul
 
 # create conda environment with bamtools installed
 mamba env create \
---force \
+--yes \
 -f "${WKDIR}"/scripts/envs/conda.bamtools.2.5.2.yml
 
 # activate bamtools conda environment
-conda activate bamtools.2.5.2
+conda activate ~/micromamba/envs/bamtools.2.5.2
 
 # merge bams
 bamtools merge \
@@ -38,11 +38,11 @@ bamtools merge \
 
 # create conda environment with sambamba installed
 mamba env create \
---force \
+--yes \
 -f "${WKDIR}"/scripts/envs/conda.sambamba.0.8.2.yml
 
 # activate sambamba conda environment
-conda activate sambamba.0.8.2
+conda activate ~/micromamba/envs/sambamba.0.8.2
 
 # sort bams
 sambamba sort \

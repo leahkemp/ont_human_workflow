@@ -31,11 +31,11 @@ source ~/.bashrc
 
 # create conda environment with htslib installed (contains bgzip)
 mamba env create \
---force \
+--yes \
 -f "${WKDIR}"/scripts/envs/conda.htslib.1.10.2.yml
 
 # activate htslib conda environment
-conda activate htslib.1.10.2
+conda activate ~/micromamba/envs/htslib.1.10.2
 
 # compress the fastq files - Miles notes the pipeline seems to require this
 for file in "${WKDIR}"/results/07-ont-wf-human-cnv/"${SAMPLE}"/fastq/*.fastq ; do 
@@ -46,11 +46,11 @@ done
 
 # create conda environment with nextflow installed
 mamba env create \
---force \
+--yes \
 -f "${WKDIR}"/scripts/envs/conda.nextflow.22.10.1.yml
 
 # activate nextflow conda environment
-conda activate nextflow.22.10.1
+conda activate ~/micromamba/envs/nextflow.22.10.1
 
 # move to working dir
 cd "${WKDIR}"/results/07-ont-wf-human-cnv/"${SAMPLE}"/

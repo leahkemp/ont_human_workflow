@@ -27,11 +27,11 @@ source ~/.bashrc
 
 # create conda environment with modbam2bed installed and activate it
 mamba env create \
---force \
+--yes \
 -f "${WKDIR}"/scripts/envs/conda.modbam2bed.0.6.3.yml
 
 # activate modbam2bed conda environment
-conda activate modbam2bed.0.6.3
+conda activate ~/micromamba/envs/modbam2bed.0.6.3
 
 # move to working dir
 cd "${WKDIR}"/results/05-ont-methyl-calling/"${SAMPLE}"/
