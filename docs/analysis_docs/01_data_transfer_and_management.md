@@ -1,7 +1,7 @@
 # 01 - Data transfer and management
 
 Created: 2022/12/12 12:36:19
-Last modified: 2022/12/16 13:23:11
+Last modified: 2023/03/01 11:34:09
 
 - **Aim:** This document outlines how to transfer data off the in house sequencers, backing up data on the dedicated space on production and organising the data
 - **Prerequisite software:** [rsync](https://rsync.samba.org/)
@@ -54,9 +54,12 @@ rsync -av /data/Adipose_AS_ours/* orac:/NGS/clinicalgenomics/archive/2022/run/ra
 
 ### In house gridion
 
-The gridion is accessible from the production network
+The gridion is accessible from the production network, there are two gridions at:
 
-To ssh into the gridion
+- 10.1.30.16
+- 10.1.30.17
+
+To ssh into a gridion, for example
 
 ```bash
 # run this code from a server on the production network
@@ -85,7 +88,7 @@ Follow the established directory structure for the bulk of the data (at `/NGS/cl
 <details><summary markdown="span">Current directory structure (click to expand)</summary>
 
 ```bash
-/NGS/clinicalgenomics/archive/2022/run/raw/adipose_ont_methylation/data/Adipose_AS_ours
+/NGS/clinicalgenomics/archive/2022/run/raw/adipose_ont_methylation/data/Adipose_AS_ours/
 ├── [ 110]  AB1052A
 │   ├── [  57]  run1
 │   ├── [  57]  run2
@@ -95,7 +98,7 @@ Follow the established directory structure for the bulk of the data (at `/NGS/cl
 ├── [  22]  AB1052B
 │   └── [  57]  run6
 ├── [  26]  AB288B
-│   └── [ 469]  p20shear
+│   └── [ 413]  p20shear
 ├── [ 132]  AB526A
 │   ├── [  57]  run1
 │   ├── [  57]  run2
@@ -103,34 +106,39 @@ Follow the established directory structure for the bulk of the data (at `/NGS/cl
 │   ├── [  57]  run4
 │   ├── [  57]  run5
 │   └── [  57]  run6
-├── [ 140]  AB526B
+├── [ 170]  AB526B
 │   ├── [  57]  run1
 │   ├── [  57]  run2
+│   ├── [  57]  run2b_astest
 │   ├── [  52]  run2b_testas
 │   ├── [  57]  run3
 │   ├── [  57]  run4
 │   └── [  57]  run5
-├── [  66]  AB740A
+├── [  88]  AB740A
 │   ├── [  52]  run1
 │   ├── [  52]  run2
-│   └── [  52]  run3
-├── [ 116]  AB740B
+│   ├── [  52]  run3
+│   └── [  52]  run4
+├── [ 138]  AB740B
+│   ├── [  57]  run1
 │   ├── [  57]  run2
 │   ├── [  52]  run3
 │   ├── [  52]  run4
 │   ├── [  52]  run5
 │   └── [  52]  testasgrid
-├── [  66]  AB755A
+├── [  88]  AB755A
 │   ├── [  52]  run1
 │   ├── [  52]  run2
-│   └── [  52]  run3
+│   ├── [  52]  run3
+│   └── [  52]  run4
 ├── [  44]  AB755B
 │   ├── [  52]  run1
 │   └── [  57]  run2
-├── [  66]  AB792A
+├── [  88]  AB792A
 │   ├── [  52]  run1
 │   ├── [  52]  run2
-│   └── [  57]  run3
+│   ├── [  57]  run3
+│   └── [  52]  run4
 ├── [ 110]  AB792B
 │   ├── [  52]  run1
 │   ├── [  52]  run2
@@ -148,7 +156,7 @@ Follow the established directory structure for the bulk of the data (at `/NGS/cl
     ├── [  52]  run4
     └── [  57]  run5
 
-61 directories, 0 files
+66 directories, 0 files
 ```
 
 </details>
