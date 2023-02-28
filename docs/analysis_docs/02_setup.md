@@ -1,7 +1,7 @@
 # 02 - Setup
 
 Created: 2022/12/12 12:51:38
-Last modified: 2023/03/01 12:29:33
+Last modified: 2023/03/01 12:34:26
 
 - **Aim:** This document outlines the setup for running the "pipeline" module scripts on ESR's production network
 - **OS:** ORAC (CentOS Linux) (ESR production network)
@@ -22,7 +22,7 @@ Get or ensure you have the appropriate software dependencies, what we need:
 
 - [git](https://git-scm.com/) (validated to work with v1.8.3.1)
 - [guppy]() (validated to work with v6.4.2)
-- [conda](https://docs.conda.io/en/latest/) (validated to work with v4.13.0)
+- [conda](https://docs.conda.io/en/latest/) (validated to work with v22.11.1)
 - [mamba](https://mamba.readthedocs.io/en/latest/index.html) (validated to work with v1.3.1)
 - [GNU coreutils](https://www.gnu.org/software/coreutils/) (validated to work with v8.22)
 - [rsync](https://rsync.samba.org/) (validated to work with v3.1.2)
