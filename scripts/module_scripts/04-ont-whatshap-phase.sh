@@ -30,11 +30,11 @@ source ~/.bashrc
 # base libs like libz in python virtual environments. I need to think more about
 # this issue, but for now conda works.
 mamba env create \
---yes \
+--force \
 -f "${WKDIR}"/scripts/envs/conda.whatshap.1.7.yml
 
 # activate whatshap conda environment
-conda activate ~/micromamba/envs/whatshap.1.7
+conda activate whatshap.1.7
 
 # whatshap phase tagging of bam output
 whatshap haplotag \
@@ -46,11 +46,11 @@ whatshap haplotag \
 
 # create conda environment with samtools installed
 mamba env create \
---yes \
+--force \
 -f "${WKDIR}"/scripts/envs/conda.samtools.1.16.1.yml
 
 # activate samtools conda environment
-conda activate ~/micromamba/envs/samtools.1.16.1
+conda activate samtools.1.16.1
 
 # index bam
 samtools index \

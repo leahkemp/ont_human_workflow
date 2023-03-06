@@ -30,11 +30,11 @@ source ~/.bashrc
 
 # create conda environment with nextflow installed
 mamba env create \
---yes \
+--force \
 -f "${WKDIR}"/scripts/envs/conda.nextflow.22.10.1.yml
 
 # activate nextflow conda environment
-conda activate ~/micromamba/envs/nextflow.22.10.1
+conda activate nextflow.22.10.1
 
 # move to working dir
 cd "${WKDIR}"/results/03-ont-wf-human-variation-calling/"${SAMPLE}"/
